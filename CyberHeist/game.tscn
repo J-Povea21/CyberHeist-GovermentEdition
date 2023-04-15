@@ -1,0 +1,93 @@
+[gd_scene load_steps=9 format=3 uid="uid://sqmlatp4sa5c"]
+
+[ext_resource type="Script" path="res://scripts/InputLine.gd" id="1_j70r2"]
+[ext_resource type="Script" path="res://scripts/game.gd" id="1_rqn27"]
+[ext_resource type="FontFile" uid="uid://2geulghbls3o" path="res://fonts/syke-mono-italic.otf" id="1_xp3dq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_86mr1"]
+bg_color = Color(0.0196078, 0.0196078, 0.0196078, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lvmaf"]
+bg_color = Color(0.0862745, 0.0862745, 0.0862745, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f26ms"]
+bg_color = Color(0.160784, 0.160784, 0.160784, 1)
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_35wk5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uwxb8"]
+
+[node name="Game" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rqn27")
+
+[node name="Background" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_86mr1")
+
+[node name="MarginContainer" type="MarginContainer" parent="Background"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Rows" type="VBoxContainer" parent="Background/MarginContainer"]
+layout_mode = 2
+
+[node name="TerminalInfo" type="PanelContainer" parent="Background/MarginContainer/Rows"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_lvmaf")
+
+[node name="Scroll" type="ScrollContainer" parent="Background/MarginContainer/Rows/TerminalInfo"]
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="CommandsHistory" type="VBoxContainer" parent="Background/MarginContainer/Rows/TerminalInfo/Scroll"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="InputArea" type="PanelContainer" parent="Background/MarginContainer/Rows"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_f26ms")
+
+[node name="InputContainer" type="HBoxContainer" parent="Background/MarginContainer/Rows/InputArea"]
+layout_mode = 2
+
+[node name="CMLChar" type="Label" parent="Background/MarginContainer/Rows/InputArea/InputContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_xp3dq")
+text = "ether@cyhst:~$"
+
+[node name="InputLine" type="LineEdit" parent="Background/MarginContainer/Rows/InputArea/InputContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("1_xp3dq")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_35wk5")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_uwxb8")
+max_length = 80
+script = ExtResource("1_j70r2")
+
+[connection signal="text_submitted" from="Background/MarginContainer/Rows/InputArea/InputContainer/InputLine" to="." method="command_submited"]
+[connection signal="text_submitted" from="Background/MarginContainer/Rows/InputArea/InputContainer/InputLine" to="Background/MarginContainer/Rows/InputArea/InputContainer/InputLine" method="enter_key_pressed"]

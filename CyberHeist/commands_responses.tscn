@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://cjbhb5j7ckvx5"]
+
+[ext_resource type="FontFile" uid="uid://2geulghbls3o" path="res://fonts/syke-mono-italic.otf" id="1_fi6lc"]
+[ext_resource type="Script" path="res://scripts/commands_responses.gd" id="1_s8q1y"]
+
+[node name="CommandsResponses" type="VBoxContainer"]
+theme_override_constants/separation = 0
+script = ExtResource("1_s8q1y")
+
+[node name="CommandHistory" type="Label" parent="."]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.607843, 0.607843, 0.607843, 1)
+theme_override_fonts/font = ExtResource("1_fi6lc")
+text = "ether@cyhst:~$ Here will go the command the user sent"
+
+[node name="Response" type="Label" parent="."]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_fi6lc")
+text = "And here the response to that command"
