@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://sqmlatp4sa5c"]
+[gd_scene load_steps=10 format=3 uid="uid://bo16o4qfes48i"]
 
 [ext_resource type="Script" path="res://scripts/InputLine.gd" id="1_j70r2"]
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_rqn27"]
 [ext_resource type="FontFile" uid="uid://2geulghbls3o" path="res://fonts/syke-mono-italic.otf" id="1_xp3dq"]
+[ext_resource type="Script" path="res://scripts/CommandProcessor.gd" id="2_xhun6"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_86mr1"]
 bg_color = Color(0.0196078, 0.0196078, 0.0196078, 1)
@@ -34,6 +35,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_rqn27")
+
+[node name="CommandProcessor" type="Node" parent="."]
+script = ExtResource("2_xhun6")
 
 [node name="Background" type="PanelContainer" parent="."]
 layout_mode = 1
