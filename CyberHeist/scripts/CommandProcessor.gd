@@ -1,5 +1,10 @@
 extends Node
 
+"""
+This is the command processor script. Here we manage all the
+commands the player sends
+"""
+
 func process_command(input: String) -> String:
 	
 	# We format and split the input
@@ -18,9 +23,20 @@ func process_command(input: String) -> String:
 	
 	match command:
 		"run":
-			return run_file(command_action)
+			return Colors.apply_color(
+				run_file(command_action),
+				Colors.TYPES.SYSTEM)
+		"help":
+			return Colors.apply_color(help(),
+			Colors.TYPES.SYSTEM)
 		_:	
-			return "%s: command not found" % command
+			return Colors.apply_color(
+			"%s: command not found" % command,
+			Colors.TYPES.ERROR)
+	
+
+func help() -> String:
+	return "List of commands: \n 1. run \n 2. help"
 
 func run_file(action: String) -> String:
 	if action.is_empty():

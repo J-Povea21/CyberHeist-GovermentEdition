@@ -1,9 +1,20 @@
-extends VBoxContainer
+extends MarginContainer
 
-# In this script we're going to manage the responses to each command
+# In this script we manage the command response view
 
-func set_text(input: String, response: String) -> void:
-	$CommandHistory.text = 'ether@cyhst:~$ ' + input
-	$Response.text = response
+@onready var response_label = $Rows/Response
+@onready var input_label = $Rows/CommandHistory
+
+func set_text(response: String, input: String = '') -> void:
+	
+	if input == '':
+		input_label.queue_free()
+	else:	
+		input_label.text = Colors.apply_color(
+			'ether@cyhst:~$ '
+			,Colors.TYPES.SYSTEM) \
+			+ input
+		
+	response_label.text = response
 	
 	

@@ -3,17 +3,31 @@
 [ext_resource type="FontFile" uid="uid://2geulghbls3o" path="res://fonts/syke-mono-italic.otf" id="1_fi6lc"]
 [ext_resource type="Script" path="res://scripts/commands_responses.gd" id="1_s8q1y"]
 
-[node name="CommandsResponses" type="VBoxContainer"]
-theme_override_constants/separation = 0
+[node name="CommandsResponses" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 5
 script = ExtResource("1_s8q1y")
 
-[node name="CommandHistory" type="Label" parent="."]
+[node name="Rows" type="VBoxContainer" parent="."]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.607843, 0.607843, 0.607843, 1)
-theme_override_fonts/font = ExtResource("1_fi6lc")
-text = "ether@cyhst:~$ Here will go the command the user sent"
+theme_override_constants/separation = 0
 
-[node name="Response" type="Label" parent="."]
+[node name="CommandHistory" type="RichTextLabel" parent="Rows"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("1_fi6lc")
-text = "And here the response to that command"
+bbcode_enabled = true
+text = "ether@cyhst:~$ Here will go the command the user sent"
+fit_content = true
+autowrap_mode = 1
+
+[node name="Response" type="RichTextLabel" parent="Rows"]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("1_fi6lc")
+bbcode_enabled = true
+text = "Default text"
+fit_content = true
+autowrap_mode = 1

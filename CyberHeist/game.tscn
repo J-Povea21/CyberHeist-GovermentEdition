@@ -1,9 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://bo16o4qfes48i"]
+[gd_scene load_steps=12 format=3 uid="uid://bo16o4qfes48i"]
 
 [ext_resource type="Script" path="res://scripts/InputLine.gd" id="1_j70r2"]
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_rqn27"]
 [ext_resource type="FontFile" uid="uid://2geulghbls3o" path="res://fonts/syke-mono-italic.otf" id="1_xp3dq"]
 [ext_resource type="Script" path="res://scripts/CommandProcessor.gd" id="2_xhun6"]
+[ext_resource type="Script" path="res://scripts/TerminalInfo.gd" id="3_dyt8s"]
+[ext_resource type="AudioStream" uid="uid://v68p36bnl2cp" path="res://sfx/command_sent.wav" id="5_htroi"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_86mr1"]
 bg_color = Color(0.0196078, 0.0196078, 0.0196078, 1)
@@ -62,6 +64,7 @@ layout_mode = 2
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_lvmaf")
+script = ExtResource("3_dyt8s")
 
 [node name="Scroll" type="ScrollContainer" parent="Background/MarginContainer/Rows/TerminalInfo"]
 layout_mode = 2
@@ -69,6 +72,8 @@ horizontal_scroll_mode = 0
 
 [node name="CommandsHistory" type="VBoxContainer" parent="Background/MarginContainer/Rows/TerminalInfo/Scroll"]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 theme_override_constants/separation = 20
 
 [node name="InputArea" type="PanelContainer" parent="Background/MarginContainer/Rows"]
@@ -81,6 +86,7 @@ layout_mode = 2
 
 [node name="CMLChar" type="Label" parent="Background/MarginContainer/Rows/InputArea/InputContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.0941176, 0.847059, 0.85098, 1)
 theme_override_fonts/font = ExtResource("1_xp3dq")
 text = "ether@cyhst:~$"
 
@@ -92,6 +98,9 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_35wk5")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_uwxb8")
 max_length = 80
 script = ExtResource("1_j70r2")
+
+[node name="CommandSent" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_htroi")
 
 [connection signal="text_submitted" from="Background/MarginContainer/Rows/InputArea/InputContainer/InputLine" to="." method="command_submited"]
 [connection signal="text_submitted" from="Background/MarginContainer/Rows/InputArea/InputContainer/InputLine" to="Background/MarginContainer/Rows/InputArea/InputContainer/InputLine" method="enter_key_pressed"]
