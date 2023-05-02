@@ -1,0 +1,12 @@
+{
+   "server":{
+   	"message": "Performing system checks...
+
+		System check identified no issues (0 silenced).
+
+		Proxy version 4.3, using settings 'config.pac'
+		Starting server at http://127.0.0.1:8000/
+		Quit the server with C.
+		"
+   }
+}
