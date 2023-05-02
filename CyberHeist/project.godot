@@ -17,6 +17,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 Colors="*res://scripts/Colors.gd"
+DataReader="*res://scripts/data_reader.gd"
 
 [rendering]
 

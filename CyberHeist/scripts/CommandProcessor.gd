@@ -4,9 +4,12 @@ extends Node
 This is the command processor script. Here we manage all the
 commands the player sends
 """
+#This variable is the one we're going to use to check
+# if the server has been started
+var server_started = false
 
 func process_command(input: String) -> String:
-	
+
 	# We format and split the input
 	var formated_input = input.to_lower()
 	var words = formated_input.split(" ", false)
@@ -29,6 +32,9 @@ func process_command(input: String) -> String:
 		"help":
 			return Colors.apply_color(help(),
 			Colors.TYPES.SYSTEM)
+		"res":
+			return Colors.apply_color(response(command_action)
+				, Colors.TYPES.SYSTEM)
 		_:	
 			return Colors.apply_color(
 			"%s: command not found" % command,
@@ -38,13 +44,23 @@ func process_command(input: String) -> String:
 func help() -> String:
 	return "List of commands: \n 1. run \n 2. help"
 
+func response(answer: String) -> String:
+	if server_started:
+		if answer.is_empty():
+			return 'Please enter an answer'
+		else:
+			return 'Not empty!'
+	else:
+		return 'The server is not started yet. Run \'run server\' '	
+			
 func run_file(action: String) -> String:
 	if action.is_empty():
 		return "Usage: run [filename]"
 	
 	match action:
-		"heist.x86_64":
-			return "The heist has started"
+		"server":
+			server_started = true
+			return DataReader.messages[action]['message']
 		_:
 			return "run \'%s\': File not found" % action
 	

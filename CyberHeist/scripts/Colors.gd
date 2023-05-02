@@ -7,7 +7,7 @@ enum TYPES{
 	SUCCESS
 }
 
-const _SYSTEM_COLOR = Color("#18D8D9")
+const _SYSTEM_COLOR = Color(Color.WHITE)
 const _ERROR_COLOR = Color("#D92338")
 const _SUCCESS_COLOR = Color("#2ADD4D")
 

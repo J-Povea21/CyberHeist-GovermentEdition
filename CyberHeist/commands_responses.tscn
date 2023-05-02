@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cjbhb5j7ckvx5"]
 
-[ext_resource type="FontFile" uid="uid://2geulghbls3o" path="res://fonts/syke-mono-italic.otf" id="1_fi6lc"]
 [ext_resource type="Script" path="res://scripts/commands_responses.gd" id="1_s8q1y"]
+[ext_resource type="FontFile" uid="uid://pdioo34qexc8" path="res://fonts/Retro Gaming.ttf" id="2_yfaw0"]
 
 [node name="CommandsResponses" type="MarginContainer"]
 anchors_preset = 15
@@ -19,6 +19,7 @@ theme_override_constants/separation = 0
 
 [node name="CommandHistory" type="RichTextLabel" parent="Rows"]
 layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("2_yfaw0")
 bbcode_enabled = true
 text = "ether@cyhst:~$ Here will go the command the user sent"
 fit_content = true
@@ -26,7 +27,7 @@ autowrap_mode = 1
 
 [node name="Response" type="RichTextLabel" parent="Rows"]
 layout_mode = 2
-theme_override_fonts/normal_font = ExtResource("1_fi6lc")
+theme_override_fonts/normal_font = ExtResource("2_yfaw0")
 bbcode_enabled = true
 text = "Default text"
 fit_content = true

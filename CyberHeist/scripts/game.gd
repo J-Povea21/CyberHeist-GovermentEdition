@@ -10,7 +10,6 @@ extends Control
 @onready var terminal= $Background/MarginContainer/Rows/TerminalInfo
 
 func _ready() -> void:
-
 	terminal.create_response("---------------
 	Initilizating apache server --------------
 	Apache server loaded. Type 'run heist' to start")

@@ -12,7 +12,7 @@ func set_text(response: String, input: String = '') -> void:
 	else:	
 		input_label.text = Colors.apply_color(
 			'ether@cyhst:~$ '
-			,Colors.TYPES.SYSTEM) \
+			,Colors.TYPES.SUCCESS) \
 			+ input
 		
 	response_label.text = response
