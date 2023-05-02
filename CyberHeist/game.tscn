@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://bo16o4qfes48i"]
+[gd_scene load_steps=14 format=3 uid="uid://bo16o4qfes48i"]
 
 [ext_resource type="Script" path="res://scripts/InputLine.gd" id="1_j70r2"]
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_rqn27"]
 [ext_resource type="Script" path="res://scripts/CommandProcessor.gd" id="2_xhun6"]
+[ext_resource type="Script" path="res://scripts/QuestionProcessor.gd" id="3_0ojow"]
 [ext_resource type="Script" path="res://scripts/TerminalInfo.gd" id="3_dyt8s"]
 [ext_resource type="FontFile" uid="uid://pdioo34qexc8" path="res://fonts/Retro Gaming.ttf" id="4_ikmrs"]
 [ext_resource type="FontFile" uid="uid://dng1gh5wqkhof" path="res://fonts/ARCADECLASSIC.TTF" id="4_tqdc5"]
@@ -41,6 +42,9 @@ script = ExtResource("1_rqn27")
 
 [node name="CommandProcessor" type="Node" parent="."]
 script = ExtResource("2_xhun6")
+
+[node name="QuestionProcessor" type="Node" parent="."]
+script = ExtResource("3_0ojow")
 
 [node name="Background" type="PanelContainer" parent="."]
 layout_mode = 1

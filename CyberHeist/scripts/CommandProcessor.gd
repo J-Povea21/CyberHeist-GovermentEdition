@@ -42,25 +42,31 @@ func process_command(input: String) -> String:
 	
 
 func help() -> String:
-	return "List of commands: \n 1. run \n 2. help"
+	return DataReader.messages['commands']
 
 func response(answer: String) -> String:
 	if server_started:
 		if answer.is_empty():
 			return 'Please enter an answer'
 		else:
-			return 'Not empty!'
-	else:
-		return 'The server is not started yet. Run \'run server\' '	
+			return QuestionProcessor.display_question()
+		
 			
+	return 'The server is not started yet. Run \'run server\' '	
+	
+	
+	
 func run_file(action: String) -> String:
 	if action.is_empty():
 		return "Usage: run [filename]"
 	
+	if server_started:
+		return DataReader.messages['server_started']
+	
 	match action:
 		"server":
 			server_started = true
-			return DataReader.messages[action]['message']
+			return DataReader.messages[action]
 		_:
 			return "run \'%s\': File not found" % action
 	

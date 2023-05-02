@@ -4,7 +4,7 @@ extends MarginContainer
 
 @onready var response_label = $Rows/Response
 @onready var input_label = $Rows/CommandHistory
-
+@onready var animation = $Rows/Response/TextAnimation
 func set_text(response: String, input: String = '') -> void:
 	
 	if input == '':
@@ -16,5 +16,6 @@ func set_text(response: String, input: String = '') -> void:
 			+ input
 		
 	response_label.text = response
+	animation.play("display_text")
 	
 	

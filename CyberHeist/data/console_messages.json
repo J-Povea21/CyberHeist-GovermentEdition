@@ -1,6 +1,9 @@
 {
-   "server":{
-   	"message": "Performing system checks...
+   "init": "  GRUB - LINUX - KDE V.4.5",
+   
+   "server_started": "The server is already running",
+   
+   "server": "Performing system checks...
 
 		System check identified no issues (0 silenced).
 
@@ -8,5 +11,10 @@
 		Starting server at http://127.0.0.1:8000/
 		Quit the server with C.
 		"
-   }
+		,
+   "commands": "List of commands: 
+   		1. help
+   		2. run
+   	       "	
+		
 }
