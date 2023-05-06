@@ -1,1 +1,151 @@
+{
+  "pregunta 1": "¿Cuál es la principal diferencia entre una lista simple y una lista doblemente enlazada?",
+  "opciones": [
+    "Las listas simples sólo pueden almacenar números, mientras que las doblemente enlazadas pueden almacenar cualquier tipo de dato",
+    "Las listas simples sólo permiten insertar elementos al final de la lista, mientras que las doblemente enlazadas permiten insertar elementos al principio o al final de la lista",
+    "Las listas simples sólo pueden tener un enlace entre cada par de elementos, mientras que las doblemente enlazadas tienen dos enlaces",
+    "No hay ninguna diferencia significativa entre una lista simple y una lista doblemente enlazada"
+  ],
+  "respuesta_correcta": 3
+}
+
+{
+  "pregunta 2": "¿Qué estructura de datos se utiliza para implementar pilas y colas?",
+  "opciones": [
+    "Listas simples",
+    "Listas doblemente enlazadas",
+    "Listas enlazadas circulares",
+    "Arrays"
+  ],
+  "respuesta_correcta": 1
+
+  {
+  "pregunta 3": "¿Cuál es la ventaja de utilizar listas doblemente enlazadas sobre listas simples?",
+  "opciones": [
+    "Las listas doblemente enlazadas son más eficientes en términos de espacio",
+    "Las listas doblemente enlazadas pueden ser recorridas en ambas direcciones",
+    " Las listas doblemente enlazadas son más fáciles de implementar que las listas simples",
+    "No hay ninguna ventaja significativa de las listas doblemente enlazadas sobre las listas simples"
+  ],
+  "respuesta_correcta": 2
+
+{
+  "pregunta 4": "¿Cuál es la principal desventaja de las listas enlazadas circulares?",
+  "opciones": [
+    "Son más difíciles de implementar que las listas simples",
+    "No permiten eliminar elementos de la lista",
+    "Pueden producir ciclos infinitos durante el recorrido de la lista",
+    "Son menos eficientes en términos de espacio que las listas simples"
+  ],
+  "respuesta_correcta": 3
+
+  {
+  "pregunta 5": "¿Cómo se define una lista doblemente enlazada en Python?
+",
+  "opciones": [
+    "Usando el tipo de dato 'list'",
+    "Usando el módulo 'collections'",
+    "Usando el módulo 'heapq'",
+    "No se puede definir una lista doblemente enlazada en Python"
+  ],
+  "respuesta_correcta": 2
+
+{
+  "pregunta 6": "¿Qué es una lista circular?",
+  "opciones": [
+    "Una lista que permite agregar elementos al final",
+    "Una lista en la que el último elemento está enlazado al primer elemento",
+    "Una lista que solo permite buscar elementos",
+    "Una lista que no permite eliminar elementos"
+  ],
+  "respuesta_correcta": 2
+
+  {
+  "pregunta 7": "¿Cómo se llama el nodo que se encuentra al principio de una lista?",
+  "opciones": [
+    "Nodo inicial",
+    "Nodo final",
+    "Nodo cabeza",
+    "Nodo cola"
+  ],
+  "respuesta_correcta": 3
+
+{
+  "pregunta 8": "¿Cuál de las siguientes opciones es una característica de las listas doblemente enlazadas?",
+  "opciones": [
+    "Permiten acceder a los elementos en orden inverso al que fueron agregados",
+    "No permiten eliminar elementos",
+    " Solo permiten agregar elementos al final",
+    "No se pueden recorrer"
+  ],
+  "respuesta_correcta": 1
+
+  {
+  "pregunta 9": "¿Qué es una multilista?",
+  "opciones": [
+    "Una lista que contiene elementos de diferentes tipos de datos",
+    "Una lista que permite agregar elementos al final y al principio",
+    "Una lista que contiene nodos que apuntan a otras listas",
+    "Una lista que solo permite la búsqueda de elementos"
+  ],
+  "respuesta_correcta": 3
+
+{
+  "pregunta 10": "¿Qué operación se realiza para eliminar el último elemento de una lista simple?",
+  "opciones": [
+    "pop()",
+    "push()",
+    "remove()",
+    "append()"
+  ],
+  "respuesta_correcta": 1
+
+  {
+  "pregunta 11": "¿Cómo se le llama al proceso de recorrer una lista desde el principio hasta el final?",
+  "opciones": [
+    "Recorrido inverso",
+    "Recorrido hacia adelante",
+    "Recorrido aleatorio",
+    "No se puede recorrer una lista"
+  ],
+  "respuesta_correcta": 2
+{
+  "pregunta 12": "¿Cuál es la principal desventaja de una lista enlazada con respecto a un array?",
+  "opciones": [
+    "Las listas enlazadas no permiten agregar nuevos elementos",
+    "Las listas enlazadas son más difíciles de implementar",
+    "Las listas enlazadas requieren más espacio en memoria",
+    "Las listas enlazadas no permiten acceder directamente a los elementos"
+  ],
+  "respuesta_correcta": 4
+
+  {
+  "pregunta 13": "¿Qué operación se realiza para agregar un elemento al final de una lista doblemente enlazada?",
+  "opciones": [
+    "insert()",
+    "push()",
+    "append()",
+    "add()"
+  ],
+  "respuesta_correcta": 3
+
+{
+  "pregunta 14": "¿Qué es una lista invertida?",
+  "opciones": [
+    "Una lista que se encuentra ordenada de forma ascendente",
+    "Una lista que se encuentra ordenada de forma descendente",
+    "Una lista que tiene el último elemento al principio y el primer elemento al final",
+    "Una lista que contiene elementos con valores negativos"
+  ],
+  "respuesta_correcta": 1
+
+  {
+  "pregunta 15": "¿Cómo se le llama al proceso de recorrer una lista desde el final hasta el principio?",
+  "opciones": [
+    "Recorrido inverso",
+    "Recorrido hacia adelante",
+    "Recorrido aleatorio",
+    "No se puede recorrer una lista"
+  ],
+  "respuesta_correcta": 1
 
