@@ -19,13 +19,13 @@ corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f26ms"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2evc4"]
 bg_color = Color(0.160784, 0.160784, 0.160784, 1)
-border_color = Color(0, 0, 0, 1)
 corner_radius_top_left = 20
 corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
+corner_detail = 10
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_35wk5"]
 
@@ -84,7 +84,7 @@ theme_override_constants/separation = 20
 [node name="InputArea" type="PanelContainer" parent="Background/MarginContainer/Rows"]
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_f26ms")
+theme_override_styles/panel = SubResource("StyleBoxFlat_2evc4")
 
 [node name="InputContainer" type="HBoxContainer" parent="Background/MarginContainer/Rows/InputArea"]
 layout_mode = 2

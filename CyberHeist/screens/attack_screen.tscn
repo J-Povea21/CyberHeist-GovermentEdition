@@ -1,0 +1,100 @@
+[gd_scene load_steps=13 format=3 uid="uid://b4o18y3pw0cmo"]
+
+[ext_resource type="Texture2D" uid="uid://b6hv7wxrg5pe7" path="res://res/black.png" id="1_e6v7x"]
+[ext_resource type="FontFile" uid="uid://pdioo34qexc8" path="res://fonts/Retro Gaming.ttf" id="2_mse6l"]
+[ext_resource type="Texture2D" uid="uid://daijqc16k8rp6" path="res://res/flags/ale.png" id="3_pvn6o"]
+[ext_resource type="Texture2D" uid="uid://c4y4coxj8k7wq" path="res://res/flags/brz.png" id="4_fvkww"]
+[ext_resource type="Texture2D" uid="uid://31g8jobgtf1s" path="res://res/flags/can.png" id="5_gk7o2"]
+[ext_resource type="Texture2D" uid="uid://d1x7r83y8c5ub" path="res://res/flags/chi.png" id="6_gltso"]
+[ext_resource type="Texture2D" uid="uid://dirfufkhrvunx" path="res://res/flags/arg.png" id="7_xjhsp"]
+[ext_resource type="Texture2D" uid="uid://cg04h8h2x1odb" path="res://res/flags/col.png" id="8_leyd5"]
+[ext_resource type="Texture2D" uid="uid://bbai5t2sdsymp" path="res://res/flags/ind.png" id="9_fxrhx"]
+[ext_resource type="Texture2D" uid="uid://b3wnd5iqxel08" path="res://res/flags/mex.png" id="10_hcks7"]
+[ext_resource type="Texture2D" uid="uid://c2jnjpko3bup0" path="res://res/flags/rus.png" id="11_3hluq"]
+[ext_resource type="Texture2D" uid="uid://b6gdvwlxftwho" path="res://res/flags/usa.png" id="12_ob3qh"]
+
+[node name="attack_screen" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 1919.0
+offset_bottom = 983.0
+texture = ExtResource("1_e6v7x")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 166.0
+offset_top = 58.0
+offset_right = 1713.0
+offset_bottom = 183.0
+theme_override_fonts/font = ExtResource("2_mse6l")
+theme_override_font_sizes/font_size = 84
+text = "Select the country to attack"
+
+[node name="ale_buttonattack" type="TextureRect" parent="."]
+offset_left = 89.0
+offset_top = 281.0
+offset_right = 374.0
+offset_bottom = 464.0
+texture = ExtResource("3_pvn6o")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+offset_left = 86.0
+offset_top = 668.0
+offset_right = 371.0
+offset_bottom = 851.0
+texture = ExtResource("4_fvkww")
+
+[node name="TextureRect3" type="TextureRect" parent="."]
+offset_left = 457.0
+offset_top = 281.0
+offset_right = 742.0
+offset_bottom = 464.0
+texture = ExtResource("5_gk7o2")
+
+[node name="TextureRect4" type="TextureRect" parent="."]
+offset_left = 461.0
+offset_top = 667.0
+offset_right = 746.0
+offset_bottom = 850.0
+texture = ExtResource("6_gltso")
+
+[node name="TextureRect5" type="TextureRect" parent="."]
+offset_left = 1550.0
+offset_top = 661.0
+offset_right = 1835.0
+offset_bottom = 844.0
+texture = ExtResource("7_xjhsp")
+
+[node name="TextureRect6" type="TextureRect" parent="."]
+offset_left = 1538.0
+offset_top = 280.0
+offset_right = 1823.0
+offset_bottom = 463.0
+texture = ExtResource("8_leyd5")
+
+[node name="TextureRect7" type="TextureRect" parent="."]
+offset_left = 1169.0
+offset_top = 282.0
+offset_right = 1454.0
+offset_bottom = 465.0
+texture = ExtResource("9_fxrhx")
+
+[node name="TextureRect8" type="TextureRect" parent="."]
+offset_left = 825.0
+offset_top = 662.0
+offset_right = 1110.0
+offset_bottom = 845.0
+texture = ExtResource("10_hcks7")
+
+[node name="TextureRect9" type="TextureRect" parent="."]
+offset_left = 820.0
+offset_top = 280.0
+offset_right = 1105.0
+offset_bottom = 463.0
+texture = ExtResource("11_3hluq")
+
+[node name="TextureRect10" type="TextureRect" parent="."]
+offset_left = 1179.0
+offset_top = 660.0
+offset_right = 1464.0
+offset_bottom = 843.0
+texture = ExtResource("12_ob3qh")
