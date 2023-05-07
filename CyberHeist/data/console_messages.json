@@ -1,20 +1,8 @@
 {
-   "init": "  GRUB - LINUX - KDE V.4.5",
-   
-   "server_started": "The server is already running",
-   
-   "server": "Performing system checks...
-
-		System check identified no issues (0 silenced).
-
-		Proxy version 4.3, using settings 'config.pac'
-		Starting server at http://127.0.0.1:8000/
-		Quit the server with C.
-		"
-		,
-   "commands": "List of commands: 
-   		1. help
-   		2. run
-   	       "	
-		
+	"init": "  GRUB - LINUX - KDE V.4.5",
+	"server_started": "The server is already running",
+	"server_not_started": "The server is not running. Run 'run server' to start",
+	"server": "Performing system checks...\n\n\t\tSystem check identified no issues (0 silenced).\n\n\t\tProxy version 4.3, using settings 'config.pac'\n\t\tStarting server at http://127.0.0.1:8000/\n\t\tTo start the heist, type the command 'heist'\n\t\t",
+	"commands": "List of commands: \n   \t\t1. help\n   \t\t2. run server\n\t\t3. res\n\t\t4. heist   \n\t\t",
+	"unknown_answer": "The answer '%s' is not in the options"
 }
