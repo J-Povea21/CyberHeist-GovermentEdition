@@ -1,7 +1,7 @@
-[gd_scene load_steps=22 format=3 uid="uid://6vlqsntrhm5h"]
+[gd_scene load_steps=26 format=3 uid="uid://bvmtlo8cqvapm"]
 
+[ext_resource type="Script" path="res://scripts/main_screen.gd" id="1_df085"]
 [ext_resource type="Texture2D" uid="uid://b6hv7wxrg5pe7" path="res://res/black.png" id="1_m31l1"]
-[ext_resource type="Script" path="res://screens/main_screen.gd" id="1_r0px0"]
 [ext_resource type="FontFile" uid="uid://pdioo34qexc8" path="res://fonts/Retro Gaming.ttf" id="2_hv2mq"]
 [ext_resource type="FontFile" uid="uid://dng1gh5wqkhof" path="res://fonts/ARCADECLASSIC.TTF" id="3_ay0qd"]
 [ext_resource type="Texture2D" uid="uid://cg04h8h2x1odb" path="res://res/flags/col.png" id="4_7eu7l"]
@@ -65,8 +65,61 @@ _data = {
 "fade_out": SubResource("Animation_8abwm")
 }
 
+[sub_resource type="Animation" id="Animation_kob6s"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("OverlayLayer/Overlay:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_l0sc6"]
+resource_name = "fade_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("OverlayLayer/Overlay:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_cslqg"]
+resource_name = "fade_out"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("OverlayLayer/Overlay:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qrl00"]
+_data = {
+"RESET": SubResource("Animation_kob6s"),
+"fade_in": SubResource("Animation_l0sc6"),
+"fade_out": SubResource("Animation_cslqg")
+}
+
 [node name="main_screen" type="Node2D"]
-script = ExtResource("1_r0px0")
+script = ExtResource("1_df085")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_right = 1922.0
@@ -219,6 +272,35 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_qrl00")
+}
+
+[node name="OverlayLayer" type="CanvasLayer" parent="."]
+layer = 10
+
+[node name="Overlay" type="ColorRect" parent="OverlayLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 12.0
+offset_bottom = 29.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0)
+metadata/_edit_use_anchors_ = true
 
 [connection signal="pressed" from="TextureRect/col_button" to="." method="_on_col_button_pressed"]
 [connection signal="pressed" from="TextureRect/mex_button" to="." method="_on_mex_button_pressed"]
+[connection signal="pressed" from="TextureRect/arg_button" to="." method="_on_arg_button_pressed"]
+[connection signal="pressed" from="TextureRect/rus_button" to="." method="_on_rus_button_pressed"]
+[connection signal="pressed" from="TextureRect/usa_button" to="." method="_on_usa_button_pressed"]
+[connection signal="pressed" from="TextureRect/chi_button" to="." method="_on_chi_button_pressed"]
+[connection signal="pressed" from="TextureRect/can_button" to="." method="_on_can_button_pressed"]
+[connection signal="pressed" from="TextureRect/ind_button" to="." method="_on_ind_button_pressed"]
+[connection signal="pressed" from="TextureRect/brz_button" to="." method="_on_brz_button_pressed"]
+[connection signal="pressed" from="TextureRect/ale_button" to="." method="_on_ale_button_pressed"]
