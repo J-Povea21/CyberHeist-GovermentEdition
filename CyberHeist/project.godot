@@ -11,15 +11,15 @@ config_version=5
 [application]
 
 config/name="CyberHeist"
-run/main_scene="res://game.tscn"
+run/main_scene="res://screens/initial_screen.tscn"
 config/features=PackedStringArray("4.0", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [autoload]
 
-Colors="*res://scripts/Colors.gd"
+Colors="*res://scripts/colors.gd"
 DataReader="*res://scripts/data_reader.gd"
-QuestionProcessor="*res://scripts/QuestionProcessor.gd"
+QuestionProcessor="*res://scripts/question_processor.gd"
 
 [display]
 

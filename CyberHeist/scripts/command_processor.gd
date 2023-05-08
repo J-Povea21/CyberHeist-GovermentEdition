@@ -27,7 +27,7 @@ func process_command(input: String) -> String:
 	match command:
 		"run":
 			return Colors.apply_color(
-				run_file(command_action),
+				run(command_action),
 				Colors.TYPES.SYSTEM)
 		"help":
 			return Colors.apply_color(help(),
@@ -35,8 +35,6 @@ func process_command(input: String) -> String:
 		"res":
 			return Colors.apply_color(response(command_action)
 				, Colors.TYPES.SYSTEM)
-		"heist":
-			return Colors.apply_color(heist(), Colors.TYPES.SYSTEM)
 		_:	
 			return Colors.apply_color(
 			"%s: command not found" % command,
@@ -55,26 +53,33 @@ func heist() -> String:
 	
 	
 func response(answer: String) -> String:
+	
 	if !server_started:
 		return DataReader.messages['server_not_started']
+		
 	elif !QuestionProcessor.valid_answer(answer):
 		return DataReader.messages['unknown_answer'] % answer
+		
+	elif QuestionProcessor.failed_questions ==2:
+		return "Game over dude"
 	else:
-		return QuestionProcessor.correct_answer(answer)
+		return "%s \n\n%s" % [QuestionProcessor.check_answer(answer),
+		heist()]
 	
 	return "Please type a response"
 		
-func run_file(action: String) -> String:
+func run(action: String) -> String:
 	if action.is_empty():
 		return "Usage: run [filename]"
 	
-	if server_started:
+	if server_started and action == 'server':
 		return DataReader.messages['server_started']
 	
 	match action:
 		"server":
 			server_started = true
-			return DataReader.messages[action]
+			return "%s \n\n%s" % [DataReader.messages[action],
+					heist()]
 		_:
 			return "run \'%s\': File not found" % action
 	

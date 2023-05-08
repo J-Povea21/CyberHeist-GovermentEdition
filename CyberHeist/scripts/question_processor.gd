@@ -4,9 +4,13 @@ var already_asked_questions = []
 
 var current_question = ''
 
+var failed_questions = 0
+
+var right_questions = 0
+
 func display_question() -> String:
 	var question_number = randi() % 14
-	
+
 	while question_number in already_asked_questions:
 		question_number = randi() % 14
 	
@@ -30,12 +34,32 @@ func display_question() -> String:
 	
 	return question_statement
 	
-func correct_answer(answer: String) -> String:
-	if int(answer) == int(current_question['answer']):
-		return "Here will go the 'correct answer' message"
-	else:
-		return "Here will go the 'incorrect answer' message"
+
+func _select_progress_message() -> String:
+	return DataReader.messages['progress'].pick_random()
+
+func _select_bad_new_message() -> String:
+	return DataReader.messages['bad_news'].pick_random()
 	
+func check_answer(answer: String) -> String:
+	
+	# We get the explanation message of the question
+	var explanation_message = current_question['explanation']
+	var formated_text = "%s \n\n Explicación: %s \n"
+	
+	if int(answer) == int(current_question['answer']):	
+		right_questions += 1
+		var progress_message = _select_progress_message()
+		
+		return formated_text %  [Colors.apply_color(progress_message, Colors.TYPES.SUCCESS),
+		explanation_message] 
+		
+	else:
+		failed_questions += 1
+		var bad_new_message = _select_bad_new_message()
+		
+		return formated_text % [Colors.apply_color(bad_new_message, Colors.TYPES.ERROR),
+		explanation_message] 
 	
 
 func valid_answer(answer: String) -> bool:
@@ -43,3 +67,4 @@ func valid_answer(answer: String) -> bool:
 		
 	
 	
+

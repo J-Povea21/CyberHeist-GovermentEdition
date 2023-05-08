@@ -1,7 +1,7 @@
 extends PanelContainer
 
 # Here we load the data of our command response scene
-const COMMAND_RESPONSE = preload("res://commands_responses.tscn")
+const COMMAND_RESPONSE = preload("res://screens/commands_responses.tscn")
 
 
 # Before creating a response, we make sure CommandHistory is ready
