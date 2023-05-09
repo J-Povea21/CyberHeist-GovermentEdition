@@ -1,0 +1,186 @@
+{
+	
+	"q0": { 
+		"statement": "¿Cuál es la principal diferencia entre una lista simple y una lista doblemente enlazada?",
+		"options": [
+		  "1) Las listas simples sólo pueden almacenar números, mientras que las doblemente enlazadas pueden almacenar cualquier tipo de dato",
+		  "2) Las listas simples sólo permiten insertar elementos al final de la lista, mientras que las doblemente enlazadas permiten insertar elementos al principio o al final de la lista",
+		  "3)Las listas simples sólo pueden tener un enlace entre cada par de elementos, mientras que las doblemente enlazadas tienen dos enlaces",
+		  "4) No hay ninguna diferencia significativa entre una lista simple y una lista doblemente enlazada"
+		],
+		"answer": 3,
+		"explanation": "Recuerda que las listas doblemente enlazadas contienen apuntadores hacia el nodo anterior y hacia el nodo siguiente mientras que las simples solo hacia el siguiente"
+	},
+	  
+	  
+	"q1":{ 
+		
+		"statement": "¿Qué estructura de datos se utiliza para implementar pilas y colas?",
+		"options": [
+		  "1) Listas simples",
+		  "2) Listas doblemente enlazadas",
+		  "3) Listas enlazadas circulares",
+		  "4) Arrays"
+		],
+		"answer": 1,
+		"explanation": "CHANGE THIS QUESTION"
+	},
+		
+	"q2": {
+		"statement": "¿Cuál es la ventaja de utilizar listas doblemente enlazadas sobre listas simples?",
+		"options": [
+		  "1) Las listas doblemente enlazadas son más eficientes en términos de espacio",
+		  "2) Las listas doblemente enlazadas pueden ser recorridas en ambas direcciones",
+		  "3) Las listas doblemente enlazadas son más fáciles de implementar que las listas simples",
+		  "4) No hay ninguna ventaja significativa de las listas doblemente enlazadas sobre las listas simples"
+		],
+		"answer": 2,
+		"explanation": "Gracias a que cada nodo de las listas doblemente enlazadas contiene apuntadores hacia el nodo anterior y hacia el nodo siguiente, es más sencillo moverse en ambas direcciones" 
+	},
+	  
+	"q3":{ 
+		"statement": "¿Cuál es la principal desventaja de las listas enlazadas circulares?",
+		"options": [
+		  "1) Son más difíciles de implementar que las listas simples",
+		  "2) No permiten eliminar elementos de la lista",
+		  "3) Pueden producir ciclos infinitos durante el recorrido de la lista",
+		  "4) Son menos eficientes en términos de espacio que las listas simples"
+		],
+		"answer": 3,
+		"explanation": "Debido a que el último nodo de la lista circular apunta al primero, es necesario darle al recorrido de la lista alguna condición en la que se detenga. De lo contrario, habrá un ciclo infinito"
+	},
+		
+	"q4": { 
+		"statement": "¿Cómo se define una lista doblemente enlazada en Python?",
+		"options": [
+		  "1) Usando el tipo de dato 'list'",
+		  "2) Usando el módulo 'collections'",
+		  "3) Usando el módulo 'heapq'",
+		  "4) No se puede definir una lista doblemente enlazada en Python"
+		],
+		"answer": 2,
+		"explanation": "El módulo de 'collections' provee una implementación de esta estructura"
+	},
+
+	  
+	"q5":{ 
+		"statement": "¿Qué es una lista circular?",
+		"options": [
+		  "1) Una lista que permite agregar elementos al final",
+		  "2) Una lista en la que el último elemento está enlazado al primer elemento",
+		  "3) Una lista que solo permite buscar elementos",
+		  "4) Una lista que no permite eliminar elementos"
+		],
+		"answer": 2,
+		"explanation": "Las listas circulares tienen este nombre gracias a que propiamente no tienen un fin, ya que el nodo final apunta al primero, por lo que se forma un 'circulo'"
+	},
+		
+	"q6":{ 
+		"statement": "¿Cómo se llama el nodo que se encuentra al principio de una lista?",
+		"options": [
+		  "1) Nodo inicial",
+		  "2) Nodo final",
+		  "3) Nodo cabeza",
+		  "4) Nodo cola"
+		],
+		"answer": 3,
+		"explanation": "En la mayoría de implementaciones de listas, al primer nodo se le llama 'nodo cabeza'"
+	},
+	  
+	"q7": {
+		"statement":"¿Cuál de las siguientes opciones es una característica de las listas doblemente enlazadas?",
+		"options": [
+		  "1) Permiten acceder a los elementos en orden inverso al que fueron agregados",
+		  "2) No permiten eliminar elementos",
+		  "3) Solo permiten agregar elementos al final",
+		  "4) No se pueden recorrer"
+		],
+		"answer": 1,
+		"explanation": "Gracias a que los nodos tienen apuntadores hacia el nodo previo y hacia el nodo siguiente, es posible accederlos en forma inversa"
+	},
+		
+	"q8": {
+		"statement": "¿Qué es una multilista?",
+		"options": [
+		  "1) Una lista que contiene elementos de diferentes tipos de datos",
+		  "2) Una lista que permite agregar elementos al final y al principio",
+		  "3) Una lista que contiene nodos que apuntan a otras listas",
+		  "4) Una lista que solo permite la búsqueda de elementos"
+		],
+		"answer": 3,
+		"explanation": "Los nodos de una multilista son otras listas, de ahí el nombre de esta estructura"
+	},
+	  
+	"q9": {
+		"statement": "¿Qué operación se realiza para eliminar el último elemento de una lista simple?",
+		"options": [
+		  "1) pop()",
+		  "2) push()",
+		  "3) remove()",
+		  "4) append()"
+		],
+		"answer": 1,
+		"explanation": "La función 'pop()' remueve el último elemento de una lista si no se le pasa algún otro índice"
+	},
+		
+	"q10": {
+		"statement": "¿Cómo se le llama al proceso de recorrer una lista desde el principio hasta el final?",
+		"options": [
+		  "1) Recorrido inverso",
+		  "2) Recorrido hacia adelante",
+		  "3) Recorrido aleatorio",
+		  "4) No se puede recorrer una lista"
+		],
+		"answer": 2,
+		"explanation": "El recorrido es hacia adelante, ya que vamos de principio a fin"
+	},
+
+	"q11": {
+		"statement": "¿Cuál es la principal desventaja de una lista enlazada con respecto a un array?",
+		"options": [
+		  "1) Las listas enlazadas no permiten agregar nuevos elementos",
+		  "2) Las listas enlazadas son más difíciles de implementar",
+		  "3) Las listas enlazadas requieren más espacio en memoria",
+		  "4) Las listas enlazadas no permiten acceder directamente a los elementos"
+		],
+		"answer": 4,
+		"explanation": "A diferencia de un array, en el cual podemos acceder a un elemento en particular pasando su índice, en las listas enlazadas debemos recorrer cada nodo hasta encontrar el elemento deseado"
+	},
+
+		
+	"q12":{ 
+		"statement": "¿Qué operación se realiza para agregar un elemento al final de una lista?",
+		"options": [
+		  "1) insert()",
+		  "2) push()",
+		  "3) append()",
+		  "4) add()"
+		],
+		"answer": 3,
+		"explanation": "La función que se usa para agregar elementos al final de una lista es 'append()'"
+	},
+	  
+	"q13": {
+		 "statement": "¿Qué es una lista invertida?",
+		"options": [
+		  "1) Una lista que se encuentra ordenada de forma ascendente",
+		  "2) Una lista que se encuentra ordenada de forma descendente",
+		  "3) Una lista que tiene el último elemento al principio y el primer elemento al final",
+		  "4) Una lista que contiene elementos con valores negativos"
+		],
+		"answer": 1,
+		"explanation": "CHANGE THIS QUESTION"
+	},
+		
+	"q14": {
+		"statement": "¿Cómo se le llama al proceso de recorrer una lista desde el final hasta el principio?",
+		"options": [
+		  "1) Recorrido inverso",
+		  "2) Recorrido hacia adelante",
+		  "3) Recorrido aleatorio",
+		  "4) No se puede recorrer una lista"
+		],
+		"answer": 1,
+		"explanation": "Debido a que estamos moviéndonos en la lista desde el final hasta el principio, estamos dando el recorrido 'en reversa'"
+	}
+}
