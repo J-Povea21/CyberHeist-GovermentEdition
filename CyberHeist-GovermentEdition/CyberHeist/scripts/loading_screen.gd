@@ -14,5 +14,6 @@ func _process(delta):
 
 
 func _on_play_button_pressed():
+	get_tree().get_nodes_in_group("Sonido")[0].get_node("Click").play()
 	get_tree().change_scene_to_file("res://screens/main_screen.tscn")
 	$AnimationPlayer.play("fade_in")

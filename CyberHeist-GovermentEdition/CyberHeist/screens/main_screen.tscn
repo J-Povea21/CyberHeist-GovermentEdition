@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://bvmtlo8cqvapm"]
+[gd_scene load_steps=27 format=3 uid="uid://bvmtlo8cqvapm"]
 
 [ext_resource type="Script" path="res://scripts/main_screen.gd" id="1_df085"]
 [ext_resource type="Texture2D" uid="uid://b6hv7wxrg5pe7" path="res://res/black.png" id="1_m31l1"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://bbai5t2sdsymp" path="res://res/flags/ind.png" id="11_0dqkf"]
 [ext_resource type="Texture2D" uid="uid://c4y4coxj8k7wq" path="res://res/flags/brz.png" id="12_wde5h"]
 [ext_resource type="Texture2D" uid="uid://daijqc16k8rp6" path="res://res/flags/ale.png" id="13_3tt20"]
+[ext_resource type="AudioStream" uid="uid://t1c4dwm0dqkn" path="res://sfx/click.mp3" id="15_7lbb6"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a8dai"]
 bg_color = Color(0.160784, 0.160784, 0.160784, 1)
@@ -293,6 +294,11 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 0)
 metadata/_edit_use_anchors_ = true
+
+[node name="Sounds" type="Node2D" parent="." groups=["Sounds"]]
+
+[node name="Click" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("15_7lbb6")
 
 [connection signal="pressed" from="TextureRect/col_button" to="." method="_on_col_button_pressed"]
 [connection signal="pressed" from="TextureRect/mex_button" to="." method="_on_mex_button_pressed"]

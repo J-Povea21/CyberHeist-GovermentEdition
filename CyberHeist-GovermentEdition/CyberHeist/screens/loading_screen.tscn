@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://b8tyay3qihgmw"]
+[gd_scene load_steps=10 format=3 uid="uid://b8tyay3qihgmw"]
 
 [ext_resource type="Script" path="res://scripts/loading_screen.gd" id="1_5o1t2"]
 [ext_resource type="Texture2D" uid="uid://c13428q7ux1fl" path="res://res/complete.png" id="1_e28eq"]
 [ext_resource type="FontFile" uid="uid://pdioo34qexc8" path="res://fonts/Retro Gaming.ttf" id="2_8lqc7"]
-[ext_resource type="AudioStream" uid="uid://frwf5gp5ilh6" path="res://sfx/main_menu.mp3" id="4_10rjf"]
+[ext_resource type="AudioStream" uid="uid://c7ikos7jjv8iv" path="res://sfx/background music.mp3" id="4_fyp63"]
+[ext_resource type="AudioStream" uid="uid://t1c4dwm0dqkn" path="res://sfx/click.mp3" id="5_fwq7y"]
 
 [sub_resource type="Animation" id="Animation_kob6s"]
 length = 0.001
@@ -106,6 +107,12 @@ color = Color(0, 0, 0, 0)
 metadata/_edit_use_anchors_ = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_10rjf")
+stream = ExtResource("4_fyp63")
+autoplay = true
+
+[node name="Sonido" type="Node2D" parent="." groups=["Sonido"]]
+
+[node name="Click" type="AudioStreamPlayer" parent="Sonido"]
+stream = ExtResource("5_fwq7y")
 
 [connection signal="pressed" from="Background/play_button" to="." method="_on_play_button_pressed"]

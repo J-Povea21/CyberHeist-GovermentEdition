@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bikhygmrsql7e"]
+[gd_scene load_steps=16 format=3 uid="uid://bikhygmrsql7e"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_rqn27"]
 [ext_resource type="Script" path="res://scripts/command_processor.gd" id="2_83drj"]
@@ -9,6 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://v68p36bnl2cp" path="res://sfx/command_sent.wav" id="5_htroi"]
 [ext_resource type="Script" path="res://scripts/terminal_info.gd" id="5_t7m3m"]
 [ext_resource type="Script" path="res://scripts/input_line.gd" id="8_3gkdh"]
+[ext_resource type="AudioStream" uid="uid://0pifq26fy0eq" path="res://sfx/wrong.mp3" id="10_65ekd"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_86mr1"]
 bg_color = Color(0.0196078, 0.0196078, 0.0196078, 1)
@@ -108,6 +109,11 @@ script = ExtResource("8_3gkdh")
 
 [node name="CommandSent" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_htroi")
+
+[node name="Sound" type="Node2D" parent="." groups=["Sound"]]
+
+[node name="mal" type="AudioStreamPlayer" parent="Sound"]
+stream = ExtResource("10_65ekd")
 
 [connection signal="text_submitted" from="Background/MarginContainer/Rows/InputArea/InputContainer/InputLine" to="." method="command_submited"]
 [connection signal="text_submitted" from="Background/MarginContainer/Rows/InputArea/InputContainer/InputLine" to="Background/MarginContainer/Rows/InputArea/InputContainer/InputLine" method="enter_key_pressed"]

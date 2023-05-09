@@ -55,6 +55,7 @@ func check_answer(answer: String) -> String:
 		explanation_message] 
 		
 	else:
+		get_tree().get_nodes_in_group("Sound")[0].get_node("mal").play()
 		failed_questions += 1
 		var bad_new_message = _select_bad_new_message()
 		

@@ -15,41 +15,51 @@ func _ready():
 
 
 func _on_col_button_pressed():
+	get_tree().get_nodes_in_group("Sounds")[0].get_node("Click").play()
 	get_tree().change_scene_to_file("res://screens/attack_screen.tscn")
 	$AnimationPlayer2.play("fade_in")
 
 func _on_mex_button_pressed():
+	get_tree().get_nodes_in_group("Sounds")[0].get_node("Click").play()
 	get_tree().change_scene_to_file("res://screens/attack_screen.tscn")
 	$AnimationPlayer2.play("fade_in")
 
 func _on_arg_button_pressed():
+	get_tree().get_nodes_in_group("Sounds")[0].get_node("Click").play()
 	get_tree().change_scene_to_file("res://screens/attack_screen.tscn")
 	$AnimationPlayer2.play("fade_in")
 
 func _on_rus_button_pressed():
+	get_tree().get_nodes_in_group("Sounds")[0].get_node("Click").play()
 	get_tree().change_scene_to_file("res://screens/attack_screen.tscn")
 	$AnimationPlayer2.play("fade_in")
 
 func _on_usa_button_pressed():
+	get_tree().get_nodes_in_group("Sounds")[0].get_node("Click").play()
 	get_tree().change_scene_to_file("res://screens/attack_screen.tscn")
 	$AnimationPlayer2.play("fade_in")
 
 func _on_chi_button_pressed():
+	get_tree().get_nodes_in_group("Sounds")[0].get_node("Click").play()
 	get_tree().change_scene_to_file("res://screens/attack_screen.tscn")
 	$AnimationPlayer2.play("fade_in")
 
 func _on_can_button_pressed():
+	get_tree().get_nodes_in_group("Sounds")[0].get_node("Click").play()
 	get_tree().change_scene_to_file("res://screens/attack_screen.tscn")
 	$AnimationPlayer2.play("fade_in")
 
 func _on_ind_button_pressed():
+	get_tree().get_nodes_in_group("Sounds")[0].get_node("Click").play()
 	get_tree().change_scene_to_file("res://screens/attack_screen.tscn")
 	$AnimationPlayer2.play("fade_in")
 
 func _on_brz_button_pressed():
+	get_tree().get_nodes_in_group("Sounds")[0].get_node("Click").play()
 	get_tree().change_scene_to_file("res://screens/attack_screen.tscn")
 	$AnimationPlayer2.play("fade_in")
 
 func _on_ale_button_pressed():
+	get_tree().get_nodes_in_group("Sounds")[0].get_node("Click").play()
 	get_tree().change_scene_to_file("res://screens/attack_screen.tscn")
 	$AnimationPlayer2.play("fade_in")
