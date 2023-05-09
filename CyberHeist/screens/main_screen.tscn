@@ -118,7 +118,7 @@ _data = {
 "fade_out": SubResource("Animation_cslqg")
 }
 
-[node name="main_screen" type="Node2D"]
+[node name="MainScreen" type="Node2D"]
 script = ExtResource("1_df085")
 
 [node name="TextureRect" type="TextureRect" parent="."]
@@ -176,7 +176,7 @@ theme_override_fonts/font = ExtResource("2_hv2mq")
 theme_override_font_sizes/font_size = 42
 text = "Select your country:"
 
-[node name="col_button" type="TextureButton" parent="TextureRect"]
+[node name="ColBtn" type="TextureButton" parent="TextureRect" groups=["flags_buttons"]]
 layout_mode = 0
 offset_left = 83.0
 offset_top = 400.0
@@ -184,7 +184,7 @@ offset_right = 373.0
 offset_bottom = 593.0
 texture_normal = ExtResource("4_7eu7l")
 
-[node name="mex_button" type="TextureButton" parent="TextureRect"]
+[node name="MexBtn" type="TextureButton" parent="TextureRect" groups=["flags_buttons"]]
 layout_mode = 0
 offset_left = 456.0
 offset_top = 401.0
@@ -192,7 +192,7 @@ offset_right = 744.0
 offset_bottom = 589.0
 texture_normal = ExtResource("5_467a4")
 
-[node name="arg_button" type="TextureButton" parent="TextureRect"]
+[node name="ArgBtn" type="TextureButton" parent="TextureRect" groups=["flags_buttons"]]
 layout_mode = 0
 offset_left = 85.0
 offset_top = 652.0
@@ -200,7 +200,7 @@ offset_right = 370.0
 offset_bottom = 845.0
 texture_normal = ExtResource("6_gttef")
 
-[node name="rus_button" type="TextureButton" parent="TextureRect"]
+[node name="RusBtn" type="TextureButton" parent="TextureRect" groups=["flags_buttons"]]
 layout_mode = 0
 offset_left = 459.0
 offset_top = 648.0
@@ -208,7 +208,7 @@ offset_right = 744.0
 offset_bottom = 836.0
 texture_normal = ExtResource("7_wq4r0")
 
-[node name="usa_button" type="TextureButton" parent="TextureRect"]
+[node name="UsaBtn" type="TextureButton" parent="TextureRect" groups=["flags_buttons"]]
 layout_mode = 0
 offset_left = 824.0
 offset_top = 400.0
@@ -216,7 +216,7 @@ offset_right = 1109.0
 offset_bottom = 586.0
 texture_normal = ExtResource("8_nwtba")
 
-[node name="chi_button" type="TextureButton" parent="TextureRect"]
+[node name="ChiBtn" type="TextureButton" parent="TextureRect" groups=["flags_buttons"]]
 layout_mode = 0
 offset_left = 824.0
 offset_top = 649.0
@@ -224,7 +224,7 @@ offset_right = 1109.0
 offset_bottom = 837.0
 texture_normal = ExtResource("9_453ea")
 
-[node name="can_button" type="TextureButton" parent="TextureRect"]
+[node name="CanBtn" type="TextureButton" parent="TextureRect" groups=["flags_buttons"]]
 layout_mode = 0
 offset_left = 1187.0
 offset_top = 406.0
@@ -232,7 +232,7 @@ offset_right = 1472.0
 offset_bottom = 594.0
 texture_normal = ExtResource("10_ddoy7")
 
-[node name="ind_button" type="TextureButton" parent="TextureRect"]
+[node name="IndBtn" type="TextureButton" parent="TextureRect" groups=["flags_buttons"]]
 layout_mode = 0
 offset_left = 1188.0
 offset_top = 647.0
@@ -240,7 +240,7 @@ offset_right = 1473.0
 offset_bottom = 838.0
 texture_normal = ExtResource("11_0dqkf")
 
-[node name="brz_button" type="TextureButton" parent="TextureRect"]
+[node name="BrzBtn" type="TextureButton" parent="TextureRect" groups=["flags_buttons"]]
 layout_mode = 0
 offset_left = 1542.0
 offset_top = 411.0
@@ -248,7 +248,7 @@ offset_right = 1827.0
 offset_bottom = 604.0
 texture_normal = ExtResource("12_wde5h")
 
-[node name="ale_button" type="TextureButton" parent="TextureRect"]
+[node name="DeuBtn" type="TextureButton" parent="TextureRect" groups=["flags_buttons"]]
 layout_mode = 0
 offset_left = 1545.0
 offset_top = 645.0
@@ -293,14 +293,3 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 0)
 metadata/_edit_use_anchors_ = true
-
-[connection signal="pressed" from="TextureRect/col_button" to="." method="_on_col_button_pressed"]
-[connection signal="pressed" from="TextureRect/mex_button" to="." method="_on_mex_button_pressed"]
-[connection signal="pressed" from="TextureRect/arg_button" to="." method="_on_arg_button_pressed"]
-[connection signal="pressed" from="TextureRect/rus_button" to="." method="_on_rus_button_pressed"]
-[connection signal="pressed" from="TextureRect/usa_button" to="." method="_on_usa_button_pressed"]
-[connection signal="pressed" from="TextureRect/chi_button" to="." method="_on_chi_button_pressed"]
-[connection signal="pressed" from="TextureRect/can_button" to="." method="_on_can_button_pressed"]
-[connection signal="pressed" from="TextureRect/ind_button" to="." method="_on_ind_button_pressed"]
-[connection signal="pressed" from="TextureRect/brz_button" to="." method="_on_brz_button_pressed"]
-[connection signal="pressed" from="TextureRect/ale_button" to="." method="_on_ale_button_pressed"]

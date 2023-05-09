@@ -8,6 +8,8 @@ commands the player sends
 # if the server has been started
 var server_started = false
 
+const GAME_OVER = preload("res://screens/game_over.tscn")
+
 func process_command(input: String) -> String:
 
 	# We format and split the input
@@ -44,7 +46,7 @@ func process_command(input: String) -> String:
 func help() -> String:
 	return DataReader.messages['commands']
 
-func heist() -> String:
+func _display_question() -> String:
 	
 	if !server_started:
 		return DataReader.messages['server_not_started']
@@ -59,12 +61,9 @@ func response(answer: String) -> String:
 		
 	elif !QuestionProcessor.valid_answer(answer):
 		return DataReader.messages['unknown_answer'] % answer
-		
-	elif QuestionProcessor.failed_questions ==2:
-		return "Game over dude"
 	else:
 		return "%s \n\n%s" % [QuestionProcessor.check_answer(answer),
-		heist()]
+		_display_question()]
 	
 	return "Please type a response"
 		
@@ -79,7 +78,7 @@ func run(action: String) -> String:
 		"server":
 			server_started = true
 			return "%s \n\n%s" % [DataReader.messages[action],
-					heist()]
+					_display_question()]
 		_:
 			return "run \'%s\': File not found" % action
 	

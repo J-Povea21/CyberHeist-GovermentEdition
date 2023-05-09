@@ -1,9 +1,9 @@
 [gd_scene load_steps=8 format=3 uid="uid://c8ek501ukku6x"]
 
-[ext_resource type="Script" path="res://scripts/initial_screen.gd" id="1_wqvr8"]
-[ext_resource type="Texture2D" uid="uid://b6hv7wxrg5pe7" path="res://res/black.png" id="2_q50j4"]
-[ext_resource type="Texture2D" uid="uid://bs7yuurhva1i5" path="res://res/calabera(1).png" id="3_cm1o2"]
-[ext_resource type="Texture2D" uid="uid://chgxhiv55ycdx" path="res://res/title.png" id="4_ywyyn"]
+[ext_resource type="Script" path="res://scripts/initial_screen.gd" id="1_44byo"]
+[ext_resource type="Texture2D" uid="uid://b6hv7wxrg5pe7" path="res://res/black.png" id="2_6320s"]
+[ext_resource type="Texture2D" uid="uid://chgxhiv55ycdx" path="res://res/title.png" id="3_0h83v"]
+[ext_resource type="Texture2D" uid="uid://bs7yuurhva1i5" path="res://res/calabera(1).png" id="4_cpv35"]
 
 [sub_resource type="Animation" id="Animation_gs2ll"]
 length = 0.001
@@ -65,25 +65,25 @@ _data = {
 "logo_animation": SubResource("Animation_dckmn")
 }
 
-[node name="initial_screen" type="Node2D"]
-script = ExtResource("1_wqvr8")
+[node name="Menu" type="Node2D"]
+script = ExtResource("1_44byo")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_right = 1919.0
 offset_bottom = 982.0
-texture = ExtResource("2_q50j4")
+texture = ExtResource("2_6320s")
 
 [node name="logo_animation" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_4yrl5")
 }
 
-[node name="title" type="Sprite2D" parent="."]
-position = Vector2(963, 200)
-texture = ExtResource("4_ywyyn")
-
 [node name="calabera" type="Sprite2D" parent="."]
 visibility_layer = 6
 position = Vector2(961, 680)
 scale = Vector2(1, 0.953)
-texture = ExtResource("3_cm1o2")
+texture = ExtResource("4_cpv35")
+
+[node name="title" type="Sprite2D" parent="."]
+position = Vector2(963, 200)
+texture = ExtResource("3_0h83v")

@@ -14,22 +14,6 @@
 [ext_resource type="Texture2D" uid="uid://c2jnjpko3bup0" path="res://res/flags/rus.png" id="11_3hluq"]
 [ext_resource type="Texture2D" uid="uid://b6gdvwlxftwho" path="res://res/flags/usa.png" id="12_ob3qh"]
 
-[sub_resource type="Animation" id="Animation_8jske"]
-resource_name = "fade_out"
-length = 2.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer/ColorRect:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
-}
-
 [sub_resource type="Animation" id="Animation_u3rdw"]
 length = 0.001
 tracks/0/type = "value"
@@ -61,6 +45,22 @@ tracks/0/keys = {
 "values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_8jske"]
+resource_name = "fade_out"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_q2gsu"]
 _data = {
 "RESET": SubResource("Animation_u3rdw"),
@@ -68,7 +68,7 @@ _data = {
 "fade_out": SubResource("Animation_8jske")
 }
 
-[node name="attack_screen" type="Node2D"]
+[node name="AttackScreen" type="Node2D"]
 script = ExtResource("1_gj3p0")
 
 [node name="TextureRect" type="TextureRect" parent="."]
@@ -85,70 +85,70 @@ theme_override_fonts/font = ExtResource("2_mse6l")
 theme_override_font_sizes/font_size = 84
 text = "Select the country to attack"
 
-[node name="ale_buttonattack" type="TextureButton" parent="."]
+[node name="DeuBtn" type="TextureButton" parent="." groups=["flags_buttons"]]
 offset_left = 89.0
 offset_top = 281.0
 offset_right = 374.0
 offset_bottom = 464.0
 texture_normal = ExtResource("3_pvn6o")
 
-[node name="brz_buttonattack" type="TextureButton" parent="."]
+[node name="BrzBtn" type="TextureButton" parent="." groups=["flags_buttons"]]
 offset_left = 86.0
 offset_top = 668.0
 offset_right = 371.0
 offset_bottom = 851.0
 texture_normal = ExtResource("4_fvkww")
 
-[node name="can_buttonattack" type="TextureButton" parent="."]
+[node name="CanBtn" type="TextureButton" parent="." groups=["flags_buttons"]]
 offset_left = 457.0
 offset_top = 281.0
 offset_right = 742.0
 offset_bottom = 464.0
 texture_normal = ExtResource("5_gk7o2")
 
-[node name="chi_buttonattack" type="TextureButton" parent="."]
+[node name="ChiBtn" type="TextureButton" parent="." groups=["flags_buttons"]]
 offset_left = 461.0
 offset_top = 667.0
 offset_right = 746.0
 offset_bottom = 850.0
 texture_normal = ExtResource("6_gltso")
 
-[node name="arg_buttonattack" type="TextureButton" parent="."]
+[node name="ArgBtn" type="TextureButton" parent="." groups=["flags_buttons"]]
 offset_left = 1550.0
 offset_top = 661.0
 offset_right = 1835.0
 offset_bottom = 844.0
 texture_normal = ExtResource("7_xjhsp")
 
-[node name="col_buttonattack" type="TextureButton" parent="."]
+[node name="ColBtn" type="TextureButton" parent="." groups=["flags_buttons"]]
 offset_left = 1538.0
 offset_top = 280.0
 offset_right = 1823.0
 offset_bottom = 463.0
 texture_normal = ExtResource("8_leyd5")
 
-[node name="indi_buttonattack" type="TextureButton" parent="."]
+[node name="IndBtn" type="TextureButton" parent="." groups=["flags_buttons"]]
 offset_left = 1169.0
 offset_top = 282.0
 offset_right = 1454.0
 offset_bottom = 465.0
 texture_normal = ExtResource("9_fxrhx")
 
-[node name="mex_buttonattack" type="TextureButton" parent="."]
+[node name="MexBtn" type="TextureButton" parent="." groups=["flags_buttons"]]
 offset_left = 825.0
 offset_top = 662.0
 offset_right = 1110.0
 offset_bottom = 845.0
 texture_normal = ExtResource("10_hcks7")
 
-[node name="rus_buttonattack" type="TextureButton" parent="."]
+[node name="RusBtn" type="TextureButton" parent="." groups=["flags_buttons"]]
 offset_left = 820.0
 offset_top = 280.0
 offset_right = 1105.0
 offset_bottom = 463.0
 texture_normal = ExtResource("11_3hluq")
 
-[node name="usa_buttonattack" type="TextureButton" parent="."]
+[node name="UsaBtn" type="TextureButton" parent="." groups=["flags_buttons"]]
 offset_left = 1179.0
 offset_top = 660.0
 offset_right = 1464.0
@@ -170,14 +170,3 @@ color = Color(0, 0, 0, 1)
 libraries = {
 "": SubResource("AnimationLibrary_q2gsu")
 }
-
-[connection signal="pressed" from="ale_buttonattack" to="." method="_on_ale_buttonattack_pressed"]
-[connection signal="pressed" from="brz_buttonattack" to="." method="_on_brz_buttonattack_pressed"]
-[connection signal="pressed" from="can_buttonattack" to="." method="_on_can_buttonattack_pressed"]
-[connection signal="pressed" from="chi_buttonattack" to="." method="_on_chi_buttonattack_pressed"]
-[connection signal="pressed" from="arg_buttonattack" to="." method="_on_arg_buttonattack_pressed"]
-[connection signal="pressed" from="col_buttonattack" to="." method="_on_col_buttonattack_pressed"]
-[connection signal="pressed" from="indi_buttonattack" to="." method="_on_indi_buttonattack_pressed"]
-[connection signal="pressed" from="mex_buttonattack" to="." method="_on_mex_buttonattack_pressed"]
-[connection signal="pressed" from="rus_buttonattack" to="." method="_on_rus_buttonattack_pressed"]
-[connection signal="pressed" from="usa_buttonattack" to="." method="_on_usa_buttonattack_pressed"]
