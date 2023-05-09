@@ -1,0 +1,98 @@
+[gd_scene load_steps=10 format=3 uid="uid://c8ek501ukku6x"]
+
+[ext_resource type="Script" path="res://scripts/initial_screen.gd" id="1_wqvr8"]
+[ext_resource type="Texture2D" uid="uid://b6hv7wxrg5pe7" path="res://res/black.png" id="2_q50j4"]
+[ext_resource type="Texture2D" uid="uid://bs7yuurhva1i5" path="res://res/calabera(1).png" id="3_cm1o2"]
+[ext_resource type="Texture2D" uid="uid://chgxhiv55ycdx" path="res://res/title.png" id="4_ywyyn"]
+[ext_resource type="AudioStream" uid="uid://c7ikos7jjv8iv" path="res://sfx/background music.mp3" id="5_bgulx"]
+[ext_resource type="Script" path="res://scripts/MusicaFondo.gd" id="6_joi1i"]
+
+[sub_resource type="Animation" id="Animation_gs2ll"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("calabera:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(961, 680)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("title:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(963, 200)]
+}
+
+[sub_resource type="Animation" id="Animation_dckmn"]
+resource_name = "logo_animation"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("calabera:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(961, -680), Vector2(961, 680)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("title:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(963, -200), Vector2(963, 200)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4yrl5"]
+_data = {
+"RESET": SubResource("Animation_gs2ll"),
+"logo_animation": SubResource("Animation_dckmn")
+}
+
+[node name="initial_screen" type="Node2D"]
+script = ExtResource("1_wqvr8")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 1919.0
+offset_bottom = 982.0
+texture = ExtResource("2_q50j4")
+expand_mode = 3
+
+[node name="logo_animation" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_4yrl5")
+}
+
+[node name="title" type="Sprite2D" parent="."]
+position = Vector2(963, 200)
+texture = ExtResource("4_ywyyn")
+
+[node name="calabera" type="Sprite2D" parent="."]
+visibility_layer = 6
+position = Vector2(961, 680)
+scale = Vector2(1, 0.953)
+texture = ExtResource("3_cm1o2")
+
+[node name="MusicaFondo" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_bgulx")
+volume_db = -16.837
+autoplay = true
+script = ExtResource("6_joi1i")

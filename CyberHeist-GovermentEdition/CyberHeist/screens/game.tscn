@@ -1,0 +1,113 @@
+[gd_scene load_steps=15 format=3 uid="uid://bikhygmrsql7e"]
+
+[ext_resource type="Script" path="res://scripts/game.gd" id="1_rqn27"]
+[ext_resource type="Script" path="res://scripts/command_processor.gd" id="2_83drj"]
+[ext_resource type="Script" path="res://scripts/question_processor.gd" id="3_m4i5t"]
+[ext_resource type="FontFile" uid="uid://pdioo34qexc8" path="res://fonts/Retro Gaming.ttf" id="4_ikmrs"]
+[ext_resource type="FontFile" uid="uid://dng1gh5wqkhof" path="res://fonts/ARCADECLASSIC.TTF" id="4_tqdc5"]
+[ext_resource type="Material" uid="uid://c87khsxlw5pk0" path="res://shaders/vhs_shader.tres" id="4_x0orp"]
+[ext_resource type="AudioStream" uid="uid://v68p36bnl2cp" path="res://sfx/command_sent.wav" id="5_htroi"]
+[ext_resource type="Script" path="res://scripts/terminal_info.gd" id="5_t7m3m"]
+[ext_resource type="Script" path="res://scripts/input_line.gd" id="8_3gkdh"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_86mr1"]
+bg_color = Color(0.0196078, 0.0196078, 0.0196078, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lvmaf"]
+bg_color = Color(0.0862745, 0.0862745, 0.0862745, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2evc4"]
+bg_color = Color(0.160784, 0.160784, 0.160784, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+corner_detail = 10
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_35wk5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uwxb8"]
+
+[node name="Game" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rqn27")
+
+[node name="CommandProcessor" type="Node" parent="."]
+script = ExtResource("2_83drj")
+
+[node name="QuestionProcessor" type="Node" parent="."]
+script = ExtResource("3_m4i5t")
+
+[node name="Background" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_86mr1")
+
+[node name="MarginContainer" type="MarginContainer" parent="Background"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Rows" type="VBoxContainer" parent="Background/MarginContainer"]
+layout_mode = 2
+
+[node name="TerminalInfo" type="PanelContainer" parent="Background/MarginContainer/Rows"]
+material = ExtResource("4_x0orp")
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_lvmaf")
+script = ExtResource("5_t7m3m")
+
+[node name="Scroll" type="ScrollContainer" parent="Background/MarginContainer/Rows/TerminalInfo"]
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="CommandsHistory" type="VBoxContainer" parent="Background/MarginContainer/Rows/TerminalInfo/Scroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 20
+
+[node name="InputArea" type="PanelContainer" parent="Background/MarginContainer/Rows"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_2evc4")
+
+[node name="InputContainer" type="HBoxContainer" parent="Background/MarginContainer/Rows/InputArea"]
+layout_mode = 2
+
+[node name="CMLChar" type="Label" parent="Background/MarginContainer/Rows/InputArea/InputContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0.686275, 0.282353, 1)
+theme_override_fonts/font = ExtResource("4_ikmrs")
+text = "ether@cyhst:~$"
+
+[node name="InputLine" type="LineEdit" parent="Background/MarginContainer/Rows/InputArea/InputContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("4_tqdc5")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_35wk5")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_uwxb8")
+max_length = 80
+script = ExtResource("8_3gkdh")
+
+[node name="CommandSent" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_htroi")
+
+[connection signal="text_submitted" from="Background/MarginContainer/Rows/InputArea/InputContainer/InputLine" to="." method="command_submited"]
+[connection signal="text_submitted" from="Background/MarginContainer/Rows/InputArea/InputContainer/InputLine" to="Background/MarginContainer/Rows/InputArea/InputContainer/InputLine" method="enter_key_pressed"]

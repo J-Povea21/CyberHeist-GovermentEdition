@@ -1,0 +1,183 @@
+[gd_scene load_steps=18 format=3 uid="uid://b4o18y3pw0cmo"]
+
+[ext_resource type="Texture2D" uid="uid://b6hv7wxrg5pe7" path="res://res/black.png" id="1_e6v7x"]
+[ext_resource type="Script" path="res://scripts/attack_screen.gd" id="1_gj3p0"]
+[ext_resource type="FontFile" uid="uid://pdioo34qexc8" path="res://fonts/Retro Gaming.ttf" id="2_mse6l"]
+[ext_resource type="Texture2D" uid="uid://daijqc16k8rp6" path="res://res/flags/ale.png" id="3_pvn6o"]
+[ext_resource type="Texture2D" uid="uid://c4y4coxj8k7wq" path="res://res/flags/brz.png" id="4_fvkww"]
+[ext_resource type="Texture2D" uid="uid://31g8jobgtf1s" path="res://res/flags/can.png" id="5_gk7o2"]
+[ext_resource type="Texture2D" uid="uid://d1x7r83y8c5ub" path="res://res/flags/chi.png" id="6_gltso"]
+[ext_resource type="Texture2D" uid="uid://dirfufkhrvunx" path="res://res/flags/arg.png" id="7_xjhsp"]
+[ext_resource type="Texture2D" uid="uid://cg04h8h2x1odb" path="res://res/flags/col.png" id="8_leyd5"]
+[ext_resource type="Texture2D" uid="uid://bbai5t2sdsymp" path="res://res/flags/ind.png" id="9_fxrhx"]
+[ext_resource type="Texture2D" uid="uid://b3wnd5iqxel08" path="res://res/flags/mex.png" id="10_hcks7"]
+[ext_resource type="Texture2D" uid="uid://c2jnjpko3bup0" path="res://res/flags/rus.png" id="11_3hluq"]
+[ext_resource type="Texture2D" uid="uid://b6gdvwlxftwho" path="res://res/flags/usa.png" id="12_ob3qh"]
+
+[sub_resource type="Animation" id="Animation_8jske"]
+resource_name = "fade_out"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_u3rdw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_00thr"]
+resource_name = "fade_in"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_q2gsu"]
+_data = {
+"RESET": SubResource("Animation_u3rdw"),
+"fade_in": SubResource("Animation_00thr"),
+"fade_out": SubResource("Animation_8jske")
+}
+
+[node name="attack_screen" type="Node2D"]
+script = ExtResource("1_gj3p0")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 1919.0
+offset_bottom = 983.0
+texture = ExtResource("1_e6v7x")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 166.0
+offset_top = 58.0
+offset_right = 1713.0
+offset_bottom = 183.0
+theme_override_fonts/font = ExtResource("2_mse6l")
+theme_override_font_sizes/font_size = 84
+text = "Select the country to attack"
+
+[node name="ale_buttonattack" type="TextureButton" parent="."]
+offset_left = 89.0
+offset_top = 281.0
+offset_right = 374.0
+offset_bottom = 464.0
+texture_normal = ExtResource("3_pvn6o")
+
+[node name="brz_buttonattack" type="TextureButton" parent="."]
+offset_left = 86.0
+offset_top = 668.0
+offset_right = 371.0
+offset_bottom = 851.0
+texture_normal = ExtResource("4_fvkww")
+
+[node name="can_buttonattack" type="TextureButton" parent="."]
+offset_left = 457.0
+offset_top = 281.0
+offset_right = 742.0
+offset_bottom = 464.0
+texture_normal = ExtResource("5_gk7o2")
+
+[node name="chi_buttonattack" type="TextureButton" parent="."]
+offset_left = 461.0
+offset_top = 667.0
+offset_right = 746.0
+offset_bottom = 850.0
+texture_normal = ExtResource("6_gltso")
+
+[node name="arg_buttonattack" type="TextureButton" parent="."]
+offset_left = 1550.0
+offset_top = 661.0
+offset_right = 1835.0
+offset_bottom = 844.0
+texture_normal = ExtResource("7_xjhsp")
+
+[node name="col_buttonattack" type="TextureButton" parent="."]
+offset_left = 1538.0
+offset_top = 280.0
+offset_right = 1823.0
+offset_bottom = 463.0
+texture_normal = ExtResource("8_leyd5")
+
+[node name="indi_buttonattack" type="TextureButton" parent="."]
+offset_left = 1169.0
+offset_top = 282.0
+offset_right = 1454.0
+offset_bottom = 465.0
+texture_normal = ExtResource("9_fxrhx")
+
+[node name="mex_buttonattack" type="TextureButton" parent="."]
+offset_left = 825.0
+offset_top = 662.0
+offset_right = 1110.0
+offset_bottom = 845.0
+texture_normal = ExtResource("10_hcks7")
+
+[node name="rus_buttonattack" type="TextureButton" parent="."]
+offset_left = 820.0
+offset_top = 280.0
+offset_right = 1105.0
+offset_bottom = 463.0
+texture_normal = ExtResource("11_3hluq")
+
+[node name="usa_buttonattack" type="TextureButton" parent="."]
+offset_left = 1179.0
+offset_top = 660.0
+offset_right = 1464.0
+offset_bottom = 843.0
+texture_normal = ExtResource("12_ob3qh")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_q2gsu")
+}
+
+[connection signal="pressed" from="ale_buttonattack" to="." method="_on_ale_buttonattack_pressed"]
+[connection signal="pressed" from="brz_buttonattack" to="." method="_on_brz_buttonattack_pressed"]
+[connection signal="pressed" from="can_buttonattack" to="." method="_on_can_buttonattack_pressed"]
+[connection signal="pressed" from="chi_buttonattack" to="." method="_on_chi_buttonattack_pressed"]
+[connection signal="pressed" from="arg_buttonattack" to="." method="_on_arg_buttonattack_pressed"]
+[connection signal="pressed" from="col_buttonattack" to="." method="_on_col_buttonattack_pressed"]
+[connection signal="pressed" from="indi_buttonattack" to="." method="_on_indi_buttonattack_pressed"]
+[connection signal="pressed" from="mex_buttonattack" to="." method="_on_mex_buttonattack_pressed"]
+[connection signal="pressed" from="rus_buttonattack" to="." method="_on_rus_buttonattack_pressed"]
+[connection signal="pressed" from="usa_buttonattack" to="." method="_on_usa_buttonattack_pressed"]
