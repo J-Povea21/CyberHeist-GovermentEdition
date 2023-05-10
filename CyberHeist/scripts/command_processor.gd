@@ -37,6 +37,11 @@ func process_command(input: String) -> String:
 		"res":
 			return Colors.apply_color(response(command_action)
 				, Colors.TYPES.SYSTEM)
+		"wdt":
+			return Colors.apply_color(wdt(command_action),
+			Colors.TYPES.SYSTEM)
+		"ls":
+			return Colors.apply_color(ls(),Colors.TYPES.SYSTEM)
 		_:	
 			return Colors.apply_color(
 			"%s: command not found" % command,
@@ -46,6 +51,25 @@ func process_command(input: String) -> String:
 func help() -> String:
 	return DataReader.messages['commands']
 
+func ls() -> String:
+	return DataReader.messages['ls_message']
+
+func wdt(command: String) -> String:
+	if command.is_empty():
+		return DataReader.messages['wdt_empty']
+	
+	match command:
+		"run":
+			return DataReader.messages['run_usage']
+		"res":
+			return DataReader.messages['res_usage']
+		"wdt":
+			return DataReader.messages['wdt_usage']
+		"ls":
+			return DataReader.messages['ls_usage']
+		_:
+			return DataReader.messages["wdt_not_found_command"] % command
+	
 func _display_question() -> String:
 	
 	if !server_started:
@@ -58,28 +82,27 @@ func response(answer: String) -> String:
 	
 	if !server_started:
 		return DataReader.messages['server_not_started']
-		
-	elif !QuestionProcessor.valid_answer(answer):
+	elif !QuestionProcessor.is_valid_answer(answer):
 		return DataReader.messages['unknown_answer'] % answer
 	else:
 		return "%s \n\n%s" % [QuestionProcessor.check_answer(answer),
 		_display_question()]
-	
-	return "Please type a response"
-		
+
 func run(action: String) -> String:
 	if action.is_empty():
-		return "Usage: run [filename]"
+		return DataReader.messages['empty_file']
 	
 	if server_started and action == 'server':
 		return DataReader.messages['server_started']
 	
 	match action:
-		"server":
+		"heist":
 			server_started = true
-			return "%s \n\n%s" % [DataReader.messages[action],
+			return "%s \n\n%s" % [DataReader.messages['server'],
 					_display_question()]
+		"members":
+			return DataReader.messages['members']
 		_:
-			return "run \'%s\': File not found" % action
+			return DataReader.messages['run_file_not_found'] % action
 	
 					

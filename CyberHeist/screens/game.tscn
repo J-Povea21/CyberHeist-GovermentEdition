@@ -1,11 +1,13 @@
-[gd_scene load_steps=15 format=3 uid="uid://bikhygmrsql7e"]
+[gd_scene load_steps=17 format=3 uid="uid://bikhygmrsql7e"]
 
+[ext_resource type="Material" uid="uid://bxpc8yx4xnd4" path="res://shaders/VHS_EFFECTl.tres" id="1_a70mo"]
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_rqn27"]
 [ext_resource type="Script" path="res://scripts/command_processor.gd" id="2_83drj"]
 [ext_resource type="Script" path="res://scripts/question_processor.gd" id="3_m4i5t"]
+[ext_resource type="AudioStream" uid="uid://frwf5gp5ilh6" path="res://sfx/main_menu.mp3" id="4_8xgvw"]
 [ext_resource type="FontFile" uid="uid://pdioo34qexc8" path="res://fonts/Retro Gaming.ttf" id="4_ikmrs"]
 [ext_resource type="FontFile" uid="uid://dng1gh5wqkhof" path="res://fonts/ARCADECLASSIC.TTF" id="4_tqdc5"]
-[ext_resource type="Material" uid="uid://c87khsxlw5pk0" path="res://shaders/vhs_shader.tres" id="4_x0orp"]
+[ext_resource type="AudioStream" uid="uid://bxsgrkelht62p" path="res://sfx/incorrect_answer.mp3" id="5_1dc54"]
 [ext_resource type="AudioStream" uid="uid://v68p36bnl2cp" path="res://sfx/command_sent.wav" id="5_htroi"]
 [ext_resource type="Script" path="res://scripts/terminal_info.gd" id="5_t7m3m"]
 [ext_resource type="Script" path="res://scripts/input_line.gd" id="8_3gkdh"]
@@ -41,6 +43,19 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_rqn27")
 
+[node name="CommandSent" type="AudioStreamPlayer" parent="." groups=["commands"]]
+stream = ExtResource("5_htroi")
+volume_db = 1.0
+
+[node name="IncorrectCommand" type="AudioStreamPlayer" parent="." groups=["commands"]]
+stream = ExtResource("5_1dc54")
+volume_db = 1.0
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_8xgvw")
+volume_db = 0.1
+autoplay = true
+
 [node name="CommandProcessor" type="Node" parent="."]
 script = ExtResource("2_83drj")
 
@@ -48,7 +63,6 @@ script = ExtResource("2_83drj")
 script = ExtResource("3_m4i5t")
 
 [node name="Background" type="PanelContainer" parent="."]
-material = ExtResource("4_x0orp")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -111,8 +125,13 @@ caret_blink = true
 caret_blink_interval = 0.6
 script = ExtResource("8_3gkdh")
 
-[node name="CommandSent" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_htroi")
+[node name="Vhs" type="CanvasLayer" parent="."]
+
+[node name="VhsEffect" type="ColorRect" parent="Vhs"]
+material = ExtResource("1_a70mo")
+offset_right = 1914.0
+offset_bottom = 972.0
+color = Color(1, 1, 1, 0)
 
 [connection signal="text_submitted" from="Background/MarginContainer/Rows/InputArea/InputContainer/InputLine" to="." method="command_submited"]
 [connection signal="text_submitted" from="Background/MarginContainer/Rows/InputArea/InputContainer/InputLine" to="Background/MarginContainer/Rows/InputArea/InputContainer/InputLine" method="enter_key_pressed"]

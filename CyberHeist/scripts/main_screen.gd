@@ -13,16 +13,18 @@ func _ready():
 	
 	for button in get_tree().get_nodes_in_group("flags_buttons"):
 		button.connect("pressed",func(): _flag_button_pressed(button))
-
-func _flag_button_pressed(button_pressed: BaseButton):
-	
+		button.connect("mouse_entered", func(): _flag_button_mouse_entered())
+func _flag_button_pressed(button_pressed: BaseButton) -> void:
 	# We take the three first chars of the button name which contains the
 	# country name. This country is assigned to the global variable
-	Global.HACKER_COUNTRY = button_pressed.name.substr(0, 3)
-	
-	Global.HACKER_NAME = name_input.text
-	Global.update_CML_CHAR()
+	var country_name= button_pressed.name.substr(0, 3)
+	Global.set_hacker_country(country_name)
+	Global.set_hacker_name(name_input.text)
+	Global.set_CML_CHAR()
 	
 	# And finally we change the scene
 	get_tree().change_scene_to_packed(COUNTRY_TO_ATTACK_SCENE)
 	$AnimationPlayer2.play("fade_in")
+
+func _flag_button_mouse_entered() -> void:
+	$HoverButtonSfx.play()

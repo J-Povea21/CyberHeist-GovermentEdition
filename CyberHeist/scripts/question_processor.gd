@@ -68,13 +68,16 @@ func check_answer(answer: String) -> String:
 		failed_questions += 1
 		var bad_new_message = _select_bad_new_message()
 		
+		if failed_questions == 1:
+			var danger_sound = get_tree().get_nodes_in_group('commands')[1]
+			danger_sound.play()
+		
 		return formated_text % [Colors.apply_color(bad_new_message, Colors.TYPES.ERROR),
 		explanation_message] 
 	
 
-func valid_answer(answer: String) -> bool:
+func is_valid_answer(answer: String) -> bool:
 	return answer.is_valid_int() and (int(answer)>=1 and int(answer)<=4)
-
 
 ## PRIVATE METHODS ##
 

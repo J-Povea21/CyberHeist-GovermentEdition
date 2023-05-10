@@ -1,23 +1,91 @@
-[gd_scene load_steps=8 format=3 uid="uid://hpvh4lhnskin"]
+[gd_scene load_steps=16 format=3 uid="uid://hpvh4lhnskin"]
 
 [ext_resource type="Script" path="res://scripts/lore_screen.gd" id="1_wb25q"]
-[ext_resource type="Material" uid="uid://c87khsxlw5pk0" path="res://shaders/vhs_shader.tres" id="2_mf4xs"]
+[ext_resource type="Shader" path="res://shaders/vhs_shader.gdshader" id="2_ftvqk"]
 [ext_resource type="FontFile" uid="uid://dng1gh5wqkhof" path="res://fonts/ARCADECLASSIC.TTF" id="3_41ujq"]
 [ext_resource type="AudioStream" uid="uid://643o5ddm46kr" path="res://sfx/lore_typing.mp3" id="4_448r7"]
+[ext_resource type="AudioStream" uid="uid://x6qq4qoafv5p" path="res://sfx/click.mp3" id="5_rkfcx"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4uf0o"]
+resource_local_to_scene = true
+shader = ExtResource("2_ftvqk")
+shader_parameter/overlay = false
+shader_parameter/scanlines_opacity = 0.4
+shader_parameter/scanlines_width = 0.25
+shader_parameter/grille_opacity = 0.579
+shader_parameter/resolution = Vector2(640, 480)
+shader_parameter/pixelate = true
+shader_parameter/roll = true
+shader_parameter/roll_speed = 8.0
+shader_parameter/roll_size = 15.0
+shader_parameter/roll_variation = 1.8
+shader_parameter/distort_intensity = 0.05
+shader_parameter/noise_opacity = 0.4
+shader_parameter/noise_speed = 5.0
+shader_parameter/static_noise_intensity = 0.06
+shader_parameter/aberration = 0.03
+shader_parameter/brightness = 1.4
+shader_parameter/discolor = true
+shader_parameter/warp_amount = 1.0
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.4
+shader_parameter/vignette_opacity = 0.5
 
 [sub_resource type="Animation" id="Animation_276t5"]
-length = 0.001
+length = 4.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("TextureRect/Label:visible_ratio")
+tracks/0/path = NodePath("Label:visible_ratio")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
+"times": PackedFloat32Array(-0.2, 4.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [1.0, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Overlayer/OverLayer:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [1.0]
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_cl7f2"]
+resource_name = "fade_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Overlayer/OverLayer:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_rgxtx"]
+resource_name = "fade_out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Overlayer/OverLayer:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_6cv8f"]
@@ -26,7 +94,7 @@ length = 8.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("TextureRect/Label:visible_ratio")
+tracks/0/path = NodePath("Label:visible_ratio")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -39,35 +107,76 @@ tracks/0/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2iloq"]
 _data = {
 "RESET": SubResource("Animation_276t5"),
+"fade_in": SubResource("Animation_cl7f2"),
+"fade_out": SubResource("Animation_rgxtx"),
 "lore_text_animation": SubResource("Animation_6cv8f")
 }
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xme1a"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pt7q7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cs8hh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m15ji"]
 
 [node name="lore_screen" type="Node2D"]
 script = ExtResource("1_wb25q")
 
-[node name="TextureRect" type="ColorRect" parent="."]
-material = ExtResource("2_mf4xs")
-offset_right = 1930.0
-offset_bottom = 1000.0
-color = Color(0, 0, 0, 1)
-
-[node name="Label" type="Label" parent="TextureRect"]
-layout_mode = 0
+[node name="Label" type="Label" parent="."]
 offset_right = 1924.0
 offset_bottom = 977.0
-theme_override_colors/font_color = Color(0, 0.478431, 0, 1)
+theme_override_colors/font_color = Color(0, 0.803922, 0, 1)
 theme_override_fonts/font = ExtResource("3_41ujq")
 theme_override_font_sizes/font_size = 18
 horizontal_alignment = 1
 vertical_alignment = 1
 clip_text = true
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="Background" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_4uf0o")
+offset_right = 1930.0
+offset_bottom = 1000.0
+color = Color(0, 0, 0, 1)
+
+[node name="Animation" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_2iloq")
 }
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="Typing" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_448r7")
+autoplay = true
 
-[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[node name="Overlayer" type="CanvasLayer" parent="."]
+
+[node name="OverLayer" type="ColorRect" parent="Overlayer"]
+offset_right = 1926.0
+offset_bottom = 989.0
+color = Color(1, 1, 1, 0)
+
+[node name="OkBtn" type="Button" parent="Overlayer/OverLayer"]
+visible = false
+top_level = true
+layout_mode = 0
+offset_left = 881.0
+offset_top = 717.0
+offset_right = 1033.0
+offset_bottom = 848.0
+theme_override_colors/font_pressed_color = Color(0.0313726, 1, 0.470588, 1)
+theme_override_colors/font_hover_color = Color(0.0313726, 1, 0.470588, 1)
+theme_override_colors/font_focus_color = Color(0.0313726, 1, 0.470588, 1)
+theme_override_fonts/font = ExtResource("3_41ujq")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxEmpty_xme1a")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_pt7q7")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_cs8hh")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_m15ji")
+text = "OK"
+
+[node name="HoverButtonSfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_rkfcx")
+
+[connection signal="animation_finished" from="Animation" to="." method="_lore_animation_finished"]
+[connection signal="mouse_entered" from="Overlayer/OverLayer/OkBtn" to="." method="_ok_btn_mouse_entered"]
+[connection signal="pressed" from="Overlayer/OverLayer/OkBtn" to="." method="_ok_button_pressed"]

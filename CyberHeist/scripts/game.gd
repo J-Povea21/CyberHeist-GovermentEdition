@@ -4,7 +4,7 @@ extends Control
 
 ## SCENES ##
 const GAME_OVER = preload("res://screens/game_over.tscn")
-const YOU_WIN = 'NotReadyYet'
+const YOU_WIN = preload("res://screens/you_win.tscn")
 
 # Here we're going to make a conection with the command processor
 @onready var command_processor = $CommandProcessor
@@ -38,4 +38,4 @@ func _player_discovered():
 	get_tree().change_scene_to_packed(GAME_OVER)
 
 func _player_wins():
-	print('The player just win!')
+	get_tree().change_scene_to_packed(YOU_WIN)

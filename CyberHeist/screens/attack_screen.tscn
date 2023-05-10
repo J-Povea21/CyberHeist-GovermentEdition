@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://b4o18y3pw0cmo"]
+[gd_scene load_steps=19 format=3 uid="uid://b4o18y3pw0cmo"]
 
 [ext_resource type="Texture2D" uid="uid://b6hv7wxrg5pe7" path="res://res/black.png" id="1_e6v7x"]
 [ext_resource type="Script" path="res://scripts/attack_screen.gd" id="1_gj3p0"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://b3wnd5iqxel08" path="res://res/flags/mex.png" id="10_hcks7"]
 [ext_resource type="Texture2D" uid="uid://c2jnjpko3bup0" path="res://res/flags/rus.png" id="11_3hluq"]
 [ext_resource type="Texture2D" uid="uid://b6gdvwlxftwho" path="res://res/flags/usa.png" id="12_ob3qh"]
+[ext_resource type="AudioStream" uid="uid://x6qq4qoafv5p" path="res://sfx/click.mp3" id="14_qisea"]
 
 [sub_resource type="Animation" id="Animation_u3rdw"]
 length = 0.001
@@ -170,3 +171,6 @@ color = Color(0, 0, 0, 1)
 libraries = {
 "": SubResource("AnimationLibrary_q2gsu")
 }
+
+[node name="HoverButtonSfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_qisea")

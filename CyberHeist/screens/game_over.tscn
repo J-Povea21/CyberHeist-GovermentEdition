@@ -1,8 +1,16 @@
-[gd_scene load_steps=11 format=3 uid="uid://yksivd46dc5y"]
+[gd_scene load_steps=13 format=3 uid="uid://yksivd46dc5y"]
 
 [ext_resource type="FontFile" uid="uid://150dj6ldsdxd" path="res://fonts/Mokoto Glitch Mark 2.otf" id="1_4brw1"]
 [ext_resource type="Script" path="res://scripts/game_over.gd" id="1_224hh"]
 [ext_resource type="Texture2D" uid="uid://dpsmydbgyjqll" path="res://res/game_over_screen.png" id="1_ombqy"]
+[ext_resource type="Material" uid="uid://bxpc8yx4xnd4" path="res://shaders/VHS_EFFECTl.tres" id="4_kv7lg"]
+[ext_resource type="AudioStream" uid="uid://x6qq4qoafv5p" path="res://sfx/click.mp3" id="5_kao6l"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vp0n4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7t6s3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_21yog"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w4qiq"]
 
@@ -11,12 +19,6 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hycc7"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6x1by"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vp0n4"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7t6s3"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_21yog"]
 
 [node name="GameOver" type="Node2D"]
 script = ExtResource("1_224hh")
@@ -28,11 +30,41 @@ offset_right = 1934.0
 offset_bottom = 989.0
 color = Color(0, 0, 0, 1)
 
-[node name="RestartBtn" type="Button" parent="."]
-offset_left = 263.0
-offset_top = 670.0
-offset_right = 640.0
-offset_bottom = 801.0
+[node name="GameOverScreen" type="Sprite2D" parent="."]
+position = Vector2(953, 484)
+texture = ExtResource("1_ombqy")
+
+[node name="Overlayer" type="CanvasLayer" parent="."]
+
+[node name="Vhs" type="ColorRect" parent="Overlayer"]
+material = ExtResource("4_kv7lg")
+offset_left = -18.0
+offset_top = -9.0
+offset_right = 1934.0
+offset_bottom = 987.0
+color = Color(1, 1, 1, 0)
+
+[node name="QuitBtn" type="Button" parent="Overlayer/Vhs"]
+layout_mode = 0
+offset_left = 1340.0
+offset_top = 683.0
+offset_right = 1624.0
+offset_bottom = 784.0
+theme_override_colors/font_pressed_color = Color(0.0627451, 1, 0.721569, 1)
+theme_override_colors/font_hover_color = Color(0.0627451, 1, 0.721569, 1)
+theme_override_fonts/font = ExtResource("1_4brw1")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxEmpty_vp0n4")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_7t6s3")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_21yog")
+text = "QUIT"
+
+[node name="RestartBtn" type="Button" parent="Overlayer/Vhs"]
+layout_mode = 0
+offset_left = 281.0
+offset_top = 679.0
+offset_right = 658.0
+offset_bottom = 810.0
 theme_override_colors/font_pressed_color = Color(0.0627451, 1, 0.721569, 1)
 theme_override_colors/font_hover_color = Color(0.0627451, 1, 0.721569, 1)
 theme_override_fonts/font = ExtResource("1_4brw1")
@@ -44,23 +76,10 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_6x1by")
 text = "Restart
 "
 
-[node name="QuitBtn" type="Button" parent="."]
-offset_left = 1322.0
-offset_top = 674.0
-offset_right = 1606.0
-offset_bottom = 775.0
-theme_override_colors/font_pressed_color = Color(0.0627451, 1, 0.721569, 1)
-theme_override_colors/font_hover_color = Color(0.0627451, 1, 0.721569, 1)
-theme_override_fonts/font = ExtResource("1_4brw1")
-theme_override_font_sizes/font_size = 60
-theme_override_styles/normal = SubResource("StyleBoxEmpty_vp0n4")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_7t6s3")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_21yog")
-text = "QUIT"
+[node name="HoverButtonSfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_kao6l")
 
-[node name="GameOverScreen" type="Sprite2D" parent="."]
-position = Vector2(953, 484)
-texture = ExtResource("1_ombqy")
-
-[connection signal="pressed" from="RestartBtn" to="." method="_restart_btn_pressed"]
-[connection signal="pressed" from="QuitBtn" to="." method="_quit_btn_pressed"]
+[connection signal="mouse_entered" from="Overlayer/Vhs/QuitBtn" to="." method="_quit_btn_mouse_entered"]
+[connection signal="pressed" from="Overlayer/Vhs/QuitBtn" to="." method="_quit_btn_pressed"]
+[connection signal="mouse_entered" from="Overlayer/Vhs/RestartBtn" to="." method="_restart_btn_mouse_entered"]
+[connection signal="pressed" from="Overlayer/Vhs/RestartBtn" to="." method="_restart_btn_pressed"]

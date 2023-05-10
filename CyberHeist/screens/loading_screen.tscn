@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://b8tyay3qihgmw"]
+[gd_scene load_steps=12 format=3 uid="uid://b8tyay3qihgmw"]
 
 [ext_resource type="Script" path="res://scripts/loading_screen.gd" id="1_5o1t2"]
 [ext_resource type="Texture2D" uid="uid://c13428q7ux1fl" path="res://res/complete.png" id="1_e28eq"]
 [ext_resource type="FontFile" uid="uid://pdioo34qexc8" path="res://fonts/Retro Gaming.ttf" id="2_8lqc7"]
-[ext_resource type="Material" uid="uid://c87khsxlw5pk0" path="res://shaders/vhs_shader.tres" id="4_05ids"]
+[ext_resource type="Shader" path="res://shaders/vhs_shader.gdshader" id="4_5l1yq"]
 [ext_resource type="AudioStream" uid="uid://frwf5gp5ilh6" path="res://sfx/main_menu.mp3" id="4_10rjf"]
+[ext_resource type="AudioStream" uid="uid://x6qq4qoafv5p" path="res://sfx/click.mp3" id="6_16usc"]
 
 [sub_resource type="Animation" id="Animation_kob6s"]
 length = 0.001
@@ -59,6 +60,31 @@ _data = {
 "fade_out": SubResource("Animation_cslqg")
 }
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4uf0o"]
+resource_local_to_scene = true
+shader = ExtResource("4_5l1yq")
+shader_parameter/overlay = false
+shader_parameter/scanlines_opacity = 0.4
+shader_parameter/scanlines_width = 0.25
+shader_parameter/grille_opacity = 0.579
+shader_parameter/resolution = Vector2(640, 480)
+shader_parameter/pixelate = true
+shader_parameter/roll = true
+shader_parameter/roll_speed = 8.0
+shader_parameter/roll_size = 15.0
+shader_parameter/roll_variation = 1.8
+shader_parameter/distort_intensity = 0.05
+shader_parameter/noise_opacity = 0.4
+shader_parameter/noise_speed = 5.0
+shader_parameter/static_noise_intensity = 0.06
+shader_parameter/aberration = 0.03
+shader_parameter/brightness = 1.4
+shader_parameter/discolor = true
+shader_parameter/warp_amount = 1.0
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.4
+shader_parameter/vignette_opacity = 0.5
+
 [node name="LoadingScreen" type="Node2D"]
 script = ExtResource("1_5o1t2")
 
@@ -95,7 +121,7 @@ libraries = {
 layer = 10
 
 [node name="Overlay" type="ColorRect" parent="OverlayLayer"]
-material = ExtResource("4_05ids")
+material = SubResource("ShaderMaterial_4uf0o")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -107,7 +133,11 @@ mouse_filter = 2
 color = Color(0, 0, 0, 0)
 metadata/_edit_use_anchors_ = true
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="MenuMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_10rjf")
 
+[node name="HoverButtonSfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_16usc")
+
+[connection signal="mouse_entered" from="Background/play_button" to="." method="_play_button_mouse_entered"]
 [connection signal="pressed" from="Background/play_button" to="." method="_on_play_button_pressed"]
