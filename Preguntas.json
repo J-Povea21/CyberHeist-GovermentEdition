@@ -10,14 +10,14 @@
 }
 
 {
-  "pregunta 2": "¿Qué estructura de datos se utiliza para implementar pilas y colas?",
+  "pregunta 2": "¿Qué es el campo 'anterior' en un nodo de una lista doblemente enlazada?",
   "opciones": [
-    "Listas simples",
-    "Listas doblemente enlazadas",
-    "Listas enlazadas circulares",
-    "Arrays"
+    "El valor del nodo anterior",
+    "El índice del nodo anterior",
+    "La dirección de memoria del nodo anterior",
+    "Ninguna de las anteriores"
   ],
-  "respuesta_correcta": 1
+  "respuesta_correcta": 3
 
   {
   "pregunta 3": "¿Cuál es la ventaja de utilizar listas doblemente enlazadas sobre listas simples?",
@@ -130,14 +130,14 @@
   "respuesta_correcta": 3
 
 {
-  "pregunta 14": "¿Qué es una lista invertida?",
+  "pregunta 14": "¿Cuál es la principal ventaja de una multilista con respecto a una lista simple?",
   "opciones": [
-    "Una lista que se encuentra ordenada de forma ascendente",
-    "Una lista que se encuentra ordenada de forma descendente",
-    "Una lista que tiene el último elemento al principio y el primer elemento al final",
+    "Permite ordenar los elementos de forma más eficiente",
+    "Permite organizar los elementos en categorías",
+    "Reduce el espacio en memoria requerido para almacenar los elementos",
     "Una lista que contiene elementos con valores negativos"
   ],
-  "respuesta_correcta": 1
+  "respuesta_correcta": 2
 
   {
   "pregunta 15": "¿Cómo se le llama al proceso de recorrer una lista desde el final hasta el principio?",
