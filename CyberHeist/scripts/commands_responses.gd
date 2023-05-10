@@ -11,7 +11,7 @@ func set_text(response: String, input: String = '') -> void:
 		input_label.queue_free()
 	else:	
 		input_label.text = Colors.apply_color(
-			'ether@cyhst:~$ '
+			Global.CML_CHAR
 			,Colors.TYPES.SUCCESS) \
 			+ input
 		

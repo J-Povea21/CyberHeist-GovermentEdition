@@ -157,14 +157,17 @@ offset_right = 1698.0
 offset_bottom = 232.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_a8dai")
 
-[node name="LineEdit" type="LineEdit" parent="TextureRect/PanelContainer"]
+[node name="NameInput" type="LineEdit" parent="TextureRect/PanelContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_ay0qd")
 theme_override_font_sizes/font_size = 50
 theme_override_styles/normal = SubResource("StyleBoxEmpty_qaw1b")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_1dioh")
 theme_override_styles/read_only = SubResource("StyleBoxEmpty_e02km")
+placeholder_text = "Type here"
 max_length = 30
+caret_blink = true
+caret_blink_interval = 0.6
 
 [node name="Label3" type="Label" parent="TextureRect"]
 layout_mode = 0

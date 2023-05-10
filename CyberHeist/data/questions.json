@@ -3,9 +3,9 @@
 	"q0": { 
 		"statement": "¿Cuál es la principal diferencia entre una lista simple y una lista doblemente enlazada?",
 		"options": [
-		  "1) Las listas simples sólo pueden almacenar números, mientras que las doblemente enlazadas pueden almacenar cualquier tipo de dato",
+		  "1) Las listas simples sólo pueden almacenar números, mientras que las doblemente enlazadas todo tipo de datos",
 		  "2) Las listas simples sólo permiten insertar elementos al final de la lista, mientras que las doblemente enlazadas permiten insertar elementos al principio o al final de la lista",
-		  "3)Las listas simples sólo pueden tener un enlace entre cada par de elementos, mientras que las doblemente enlazadas tienen dos enlaces",
+		  "3)Las listas simples sólo tienen un enlace entre cada elemento, mientras que las doblemente enlazadas tienen dos enlaces",
 		  "4) No hay ninguna diferencia significativa entre una lista simple y una lista doblemente enlazada"
 		],
 		"answer": 3,
@@ -15,15 +15,17 @@
 	  
 	"q1":{ 
 		
-		"statement": "¿Qué estructura de datos se utiliza para implementar pilas y colas?",
+		"statement": "¿Qué representa el campo 'anterior' en un nodo de una lista doblemente enlazada?",
 		"options": [
-		  "1) Listas simples",
-		  "2) Listas doblemente enlazadas",
-		  "3) Listas enlazadas circulares",
-		  "4) Arrays"
+		  "1) El valor del nodo anterior",
+		  "2) El índice del nodo anterior",
+		  "3) La dirección de memoria del nodo anterior",
+		  "4) Ninguna de las anteriores"
 		],
-		"answer": 1,
-		"explanation": "CHANGE THIS QUESTION"
+		"answer": 3,
+		"explanation": "El campo 'anterior' es un apuntador hacia la dirección de memoria en la que se encuentra
+		el nodo previo. Igualmente, el campo 'siguiente' sería el que apunta hacia la dirección de memoria del
+		nodo posterior"
 	},
 		
 	"q2": {
@@ -161,15 +163,16 @@
 	},
 	  
 	"q13": {
-		 "statement": "¿Qué es una lista invertida?",
+		 "statement": "¿Cuál es la principal ventaja de una multilista con respecto a una lista simple?",
 		"options": [
-		  "1) Una lista que se encuentra ordenada de forma ascendente",
-		  "2) Una lista que se encuentra ordenada de forma descendente",
-		  "3) Una lista que tiene el último elemento al principio y el primer elemento al final",
+		  "1) Permite ordenar los elementos de forma más eficiente",
+		  "2) Permite organizar los elementos en subcategorías",
+		  "3) Reduce el espacio en memoria requerido para almacenar los elementos",
 		  "4) Una lista que contiene elementos con valores negativos"
 		],
-		"answer": 1,
-		"explanation": "CHANGE THIS QUESTION"
+		"answer": 2,
+		"explanation": "Gracias a que una multilista contiene otras listas, es posible organizar los elementos
+		en subcategorías o subelementos. Podría verse como los registros de una tabla"
 	},
 		
 	"q14": {

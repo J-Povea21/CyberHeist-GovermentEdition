@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://hpvh4lhnskin"]
 
 [ext_resource type="Script" path="res://scripts/lore_screen.gd" id="1_wb25q"]
-[ext_resource type="Texture2D" uid="uid://b6hv7wxrg5pe7" path="res://res/black.png" id="2_owkj0"]
+[ext_resource type="Material" uid="uid://c87khsxlw5pk0" path="res://shaders/vhs_shader.tres" id="2_mf4xs"]
 [ext_resource type="FontFile" uid="uid://dng1gh5wqkhof" path="res://fonts/ARCADECLASSIC.TTF" id="3_41ujq"]
 [ext_resource type="AudioStream" uid="uid://643o5ddm46kr" path="res://sfx/lore_typing.mp3" id="4_448r7"]
 
@@ -45,17 +45,22 @@ _data = {
 [node name="lore_screen" type="Node2D"]
 script = ExtResource("1_wb25q")
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="TextureRect" type="ColorRect" parent="."]
+material = ExtResource("2_mf4xs")
 offset_right = 1930.0
 offset_bottom = 1000.0
-texture = ExtResource("2_owkj0")
+color = Color(0, 0, 0, 1)
 
 [node name="Label" type="Label" parent="TextureRect"]
 layout_mode = 0
 offset_right = 1924.0
 offset_bottom = 977.0
+theme_override_colors/font_color = Color(0, 0.478431, 0, 1)
 theme_override_fonts/font = ExtResource("3_41ujq")
 theme_override_font_sizes/font_size = 18
+horizontal_alignment = 1
+vertical_alignment = 1
+clip_text = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

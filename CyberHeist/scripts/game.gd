@@ -12,11 +12,15 @@ const YOU_WIN = 'NotReadyYet'
 # And here we make the connection with the terminal view
 @onready var terminal= $Background/MarginContainer/Rows/TerminalInfo
 
+@onready var cml_char = $Background/MarginContainer/Rows/InputArea/InputContainer/CMLChar
 func _ready() -> void:
 	
 	# First, we connect the signals from our QuestionProcessor
 	QuestionProcessor.player_discovered.connect(_player_discovered)
 	QuestionProcessor.player_wins.connect(_player_wins)
+	
+	# Now we modify the cml tag/char with the player name
+	cml_char.text = Global.CML_CHAR
 	
 	terminal.create_response(DataReader.messages['init'])
 	

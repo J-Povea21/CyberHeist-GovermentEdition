@@ -48,6 +48,7 @@ script = ExtResource("2_83drj")
 script = ExtResource("3_m4i5t")
 
 [node name="Background" type="PanelContainer" parent="."]
+material = ExtResource("4_x0orp")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -67,7 +68,8 @@ theme_override_constants/margin_bottom = 20
 layout_mode = 2
 
 [node name="TerminalInfo" type="PanelContainer" parent="Background/MarginContainer/Rows"]
-material = ExtResource("4_x0orp")
+show_behind_parent = true
+clip_children = 1
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_lvmaf")
@@ -95,7 +97,7 @@ layout_mode = 2
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0.686275, 0.282353, 1)
 theme_override_fonts/font = ExtResource("4_ikmrs")
-text = "ether@cyhst:~$"
+text = "@cyhst:~$"
 
 [node name="InputLine" type="LineEdit" parent="Background/MarginContainer/Rows/InputArea/InputContainer"]
 layout_mode = 2
