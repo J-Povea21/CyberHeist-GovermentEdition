@@ -1,0 +1,75 @@
+{
+	"init": "  GRUB - LINUX - KDE V.4.5 \n Type 'help' to see the list of avaiable commands ",
+	"server_started": "The server is already running",
+	"server_not_started": "The server is not running. Please run the server (Hint: use the 'run' command)",
+	"server": "Performing system checks...\n\n\t\tSystem check identified no issues (0 silenced).\n\n\t\tProxy version 4.3, using settings 'config.pac'\n\t\tStarting server at http://127.0.0.1:8000/\n\t\t The cyberheist started!\n\t\t",
+	"members": "Zharick Oviedo \n Carlos Lopez \n Henry Saenz \n Juan Povea"
+	,
+	"commands": "List of commands: 
+	1. help   
+	2. run 
+	3. res
+	4. wdt command_name
+	5. ls",
+	
+	"run_usage": "This command is used to run files. The syntax is run file_name. In order to start the game, you have to run the server file called 'heist' ",
+	
+	"empty_file": "Please provide a file to run. Use ls to see the avaible files or wdt run to learn how to use the command"
+	,
+	
+	"run_file_not_found": "run '%s': File not found. Use 'ls' to see the avaiable files",
+	
+	"res_usage": "This command is used to answer the questions. The syntax is res answer_number. You can't answer
+	to a question if the server is not started"
+	,
+	
+	"ls_message": "home/ 	heist
+home/ 	members
+		      "
+	
+	,
+	
+	"ls_usage": "This command displays the files in the current folder. It doesn't receive any argument",
+	
+	"wdt_usage": "This command provides help of what each command do. If you're using me it´s because you already know
+	how to use me",
+	
+	"wdt_empty": "Please provide the command you want to learn how to use"
+	,
+	
+	"wdt_not_found_command": "wdt '%s': command not found. Use 'help' to see the avaible commands"
+	,
+	"unknown_answer": "The answer '%s' is not in the options. Please type an answer number",
+	"progress":[
+	    "Successful Encryption.",
+    	    "Successfully exploited a vulnerability.",
+            "Infiltration successful.",
+            "Data analysis complete.",
+            "Cracking the code...",
+            "Successfully gained access to the target system.",
+            "Target identified.",
+            "Firewall bypassed.",
+            "Encryption key obtained.",
+            "Access granted.",
+            "Backdoor successfully planted in the system.",
+            "Initializated connection with remote server",
+            "Evaded detection by the system's security measures.",
+	],
+	
+	"bad_news": [
+	    "WARNING: Security breach detected. Unauthorized access to system files detected.",
+    	    "ALERT: Firewall breach detected. Malware may have been installed on this system.",
+            "The SSH protocol has been compromised. Unauthorized access may have been granted.",
+            "Intrusion detected.",
+            "Possible ransomware detected.",
+            "Critical vulnerability discovered",
+            "Unusual activity detected on the system",
+            "Unauthorized access detected. Lockdown initiated.",
+            "System resources being drained. Possible DDoS attack in progress.",
+            "Data leak detected",
+            "Advanced persistent threat detected",
+            "Brute force attack detected on login credentials",
+            "Suspicious traffic detected. Firewall has been activated to try prevent further intrusion.",
+            "Network traffic being monitored for security purposes. Any suspicious activity will be flagged.",
+	]
+}

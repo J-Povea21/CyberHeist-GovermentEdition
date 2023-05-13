@@ -1,0 +1,175 @@
+[gd_scene load_steps=20 format=3 uid="uid://c8lmq8pda2kq2"]
+
+[ext_resource type="Script" path="res://scripts/you_win.gd" id="1_8ii4w"]
+[ext_resource type="Material" uid="uid://bxpc8yx4xnd4" path="res://shaders/VHS_EFFECTl.tres" id="1_dpd6c"]
+[ext_resource type="FontFile" uid="uid://dng1gh5wqkhof" path="res://fonts/ARCADECLASSIC.TTF" id="1_qpjfj"]
+[ext_resource type="FontFile" uid="uid://150dj6ldsdxd" path="res://fonts/Mokoto Glitch Mark 2.otf" id="2_ucqys"]
+[ext_resource type="Texture2D" uid="uid://c0t1ec4rmkrxp" path="res://res/you_win.png" id="2_uwykx"]
+[ext_resource type="AudioStream" uid="uid://643o5ddm46kr" path="res://sfx/lore_typing.mp3" id="5_3whie"]
+[ext_resource type="AudioStream" uid="uid://x6qq4qoafv5p" path="res://sfx/click.mp3" id="6_j8s74"]
+
+[sub_resource type="Animation" id="Animation_5euy8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/OverLayer:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("FinalMessage:visible_ratio")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_1wmvu"]
+resource_name = "display_text"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FinalMessage:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_52euu"]
+resource_name = "fade_out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/OverLayer:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_n3s4c"]
+_data = {
+"RESET": SubResource("Animation_5euy8"),
+"display_text": SubResource("Animation_1wmvu"),
+"fade_out": SubResource("Animation_52euu")
+}
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ra6r1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w8vg6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gbcuk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_o87en"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hfk45"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rdbw5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_50g8s"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1n6iq"]
+
+[node name="YouWin" type="Node2D"]
+script = ExtResource("1_8ii4w")
+
+[node name="YouWin" type="Sprite2D" parent="."]
+position = Vector2(905, 222)
+texture = ExtResource("2_uwykx")
+
+[node name="Animation" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_n3s4c")
+}
+
+[node name="FinalMessage" type="Label" parent="."]
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 1928.0
+offset_bottom = 989.0
+theme_override_colors/font_color = Color(0, 0.803922, 0, 1)
+theme_override_fonts/font = ExtResource("1_qpjfj")
+theme_override_font_sizes/font_size = 30
+horizontal_alignment = 1
+vertical_alignment = 1
+clip_text = true
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = ExtResource("1_dpd6c")
+offset_right = 1917.0
+offset_bottom = 992.0
+color = Color(0, 0, 0, 1)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="OverLayer" type="ColorRect" parent="CanvasLayer"]
+offset_right = 1912.0
+offset_bottom = 996.0
+color = Color(0, 0, 0, 1)
+
+[node name="Quit" type="Button" parent="CanvasLayer/OverLayer"]
+visible = false
+layout_mode = 0
+offset_left = 1166.0
+offset_top = 743.0
+offset_right = 1390.0
+offset_bottom = 837.0
+theme_override_colors/font_pressed_color = Color(0.0627451, 1, 0.721569, 1)
+theme_override_colors/font_hover_color = Color(0.0627451, 1, 0.721569, 1)
+theme_override_fonts/font = ExtResource("2_ucqys")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ra6r1")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_w8vg6")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_gbcuk")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_o87en")
+text = "Quit"
+
+[node name="Restart" type="Button" parent="CanvasLayer/OverLayer"]
+visible = false
+layout_mode = 0
+offset_left = 290.0
+offset_top = 736.0
+offset_right = 795.0
+offset_bottom = 830.0
+theme_override_colors/font_pressed_color = Color(0.0627451, 1, 0.721569, 1)
+theme_override_colors/font_hover_color = Color(0.0627451, 1, 0.721569, 1)
+theme_override_fonts/font = ExtResource("2_ucqys")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxEmpty_hfk45")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_rdbw5")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_50g8s")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1n6iq")
+text = "Play again"
+
+[node name="Typing" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_3whie")
+autoplay = true
+
+[node name="HoverButtonSfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_j8s74")
+
+[connection signal="animation_finished" from="Animation" to="." method="_animation_finished"]
+[connection signal="mouse_entered" from="CanvasLayer/OverLayer/Quit" to="." method="_quit_mouse_entered"]
+[connection signal="pressed" from="CanvasLayer/OverLayer/Quit" to="." method="_quit_button_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/OverLayer/Restart" to="." method="_restart_mouse_entered"]
+[connection signal="pressed" from="CanvasLayer/OverLayer/Restart" to="." method="_restart_button_pressed"]
