@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://bvmtlo8cqvapm"]
+[gd_scene load_steps=29 format=3 uid="uid://bvmtlo8cqvapm"]
 
 [ext_resource type="Script" path="res://scripts/main_screen.gd" id="1_df085"]
 [ext_resource type="Texture2D" uid="uid://b6hv7wxrg5pe7" path="res://res/black.png" id="1_m31l1"]
@@ -14,7 +14,9 @@
 [ext_resource type="Texture2D" uid="uid://bbai5t2sdsymp" path="res://res/flags/ind.png" id="11_0dqkf"]
 [ext_resource type="Texture2D" uid="uid://c4y4coxj8k7wq" path="res://res/flags/brz.png" id="12_wde5h"]
 [ext_resource type="Texture2D" uid="uid://daijqc16k8rp6" path="res://res/flags/ale.png" id="13_3tt20"]
+[ext_resource type="Material" uid="uid://bxpc8yx4xnd4" path="res://shaders/VHS_EFFECTl.tres" id="15_3hfga"]
 [ext_resource type="AudioStream" uid="uid://x6qq4qoafv5p" path="res://sfx/click.mp3" id="15_4wqp6"]
+[ext_resource type="AudioStream" uid="uid://frwf5gp5ilh6" path="res://sfx/main_menu.mp3" id="17_r710h"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a8dai"]
 bg_color = Color(0.160784, 0.160784, 0.160784, 1)
@@ -287,6 +289,7 @@ libraries = {
 layer = 10
 
 [node name="Overlay" type="ColorRect" parent="OverlayLayer"]
+material = ExtResource("15_3hfga")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -300,3 +303,9 @@ metadata/_edit_use_anchors_ = true
 
 [node name="HoverButtonSfx" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("15_4wqp6")
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("17_r710h")
+autoplay = true
+
+[connection signal="finished" from="BackgroundMusic" to="." method="_background_music_finished"]

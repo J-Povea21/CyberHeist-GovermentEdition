@@ -56,6 +56,7 @@ theme_override_constants/separation = 0
 [node name="CommandHistory" type="RichTextLabel" parent="Rows"]
 layout_mode = 2
 theme_override_fonts/normal_font = ExtResource("2_yfaw0")
+theme_override_font_sizes/normal_font_size = 20
 bbcode_enabled = true
 text = "ether@cyhst:~$ Here will go the command the user sent"
 fit_content = true
@@ -64,6 +65,7 @@ autowrap_mode = 1
 [node name="Response" type="RichTextLabel" parent="Rows"]
 layout_mode = 2
 theme_override_fonts/normal_font = ExtResource("2_yfaw0")
+theme_override_font_sizes/normal_font_size = 20
 bbcode_enabled = true
 text = "usage: run [filename]"
 fit_content = true

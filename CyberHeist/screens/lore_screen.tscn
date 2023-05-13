@@ -36,7 +36,7 @@ length = 4.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Label:visible_ratio")
+tracks/0/path = NodePath("Background/Label:visible_ratio")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -94,7 +94,7 @@ length = 8.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Label:visible_ratio")
+tracks/0/path = NodePath("Background/Label:visible_ratio")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -123,7 +123,13 @@ _data = {
 [node name="lore_screen" type="Node2D"]
 script = ExtResource("1_wb25q")
 
-[node name="Label" type="Label" parent="."]
+[node name="Background" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_4uf0o")
+offset_right = 1930.0
+offset_bottom = 1000.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="Background"]
 offset_right = 1924.0
 offset_bottom = 977.0
 theme_override_colors/font_color = Color(0, 0.803922, 0, 1)
@@ -132,12 +138,6 @@ theme_override_font_sizes/font_size = 18
 horizontal_alignment = 1
 vertical_alignment = 1
 clip_text = true
-
-[node name="Background" type="ColorRect" parent="."]
-material = SubResource("ShaderMaterial_4uf0o")
-offset_right = 1930.0
-offset_bottom = 1000.0
-color = Color(0, 0, 0, 1)
 
 [node name="Animation" type="AnimationPlayer" parent="."]
 libraries = {

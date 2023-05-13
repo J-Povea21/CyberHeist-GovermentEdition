@@ -39,3 +39,7 @@ func _player_discovered():
 
 func _player_wins():
 	get_tree().change_scene_to_packed(YOU_WIN)
+
+
+func _background_music_finished() -> void:
+	$BackgroundMusic.play()

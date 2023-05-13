@@ -117,6 +117,7 @@ text = "@cyhst:~$"
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("4_tqdc5")
+theme_override_font_sizes/font_size = 21
 theme_override_styles/normal = SubResource("StyleBoxEmpty_35wk5")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_uwxb8")
 placeholder_text = "Type your commands here"
@@ -133,5 +134,6 @@ offset_right = 1914.0
 offset_bottom = 972.0
 color = Color(1, 1, 1, 0)
 
+[connection signal="finished" from="BackgroundMusic" to="." method="_background_music_finished"]
 [connection signal="text_submitted" from="Background/MarginContainer/Rows/InputArea/InputContainer/InputLine" to="." method="command_submited"]
 [connection signal="text_submitted" from="Background/MarginContainer/Rows/InputArea/InputContainer/InputLine" to="Background/MarginContainer/Rows/InputArea/InputContainer/InputLine" method="enter_key_pressed"]

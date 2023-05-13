@@ -3,7 +3,7 @@ extends Node2D
 ## NEW SCENE ##
 const GAME_SCENE = preload("res://screens/game.tscn")
 
-@onready var label_lore = $Label
+@onready var label_lore = $Background/Label
 @onready var ok_button = $Overlayer/OverLayer/OkBtn
 @onready var animations = $Animation
 

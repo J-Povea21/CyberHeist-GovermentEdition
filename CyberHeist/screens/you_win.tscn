@@ -1,9 +1,10 @@
-[gd_scene load_steps=19 format=3 uid="uid://c8lmq8pda2kq2"]
+[gd_scene load_steps=20 format=3 uid="uid://c8lmq8pda2kq2"]
 
 [ext_resource type="Script" path="res://scripts/you_win.gd" id="1_8ii4w"]
 [ext_resource type="Material" uid="uid://bxpc8yx4xnd4" path="res://shaders/VHS_EFFECTl.tres" id="1_dpd6c"]
 [ext_resource type="FontFile" uid="uid://dng1gh5wqkhof" path="res://fonts/ARCADECLASSIC.TTF" id="1_qpjfj"]
 [ext_resource type="FontFile" uid="uid://150dj6ldsdxd" path="res://fonts/Mokoto Glitch Mark 2.otf" id="2_ucqys"]
+[ext_resource type="Texture2D" uid="uid://c0t1ec4rmkrxp" path="res://res/you_win.png" id="2_uwykx"]
 [ext_resource type="AudioStream" uid="uid://643o5ddm46kr" path="res://sfx/lore_typing.mp3" id="5_3whie"]
 [ext_resource type="AudioStream" uid="uid://x6qq4qoafv5p" path="res://sfx/click.mp3" id="6_j8s74"]
 
@@ -34,21 +35,6 @@ tracks/1/keys = {
 "values": [0.0]
 }
 
-[sub_resource type="Animation" id="Animation_52euu"]
-resource_name = "fade_out"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer/OverLayer:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
-}
-
 [sub_resource type="Animation" id="Animation_1wmvu"]
 resource_name = "display_text"
 tracks/0/type = "value"
@@ -62,6 +48,21 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_52euu"]
+resource_name = "fade_out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/OverLayer:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_n3s4c"]
@@ -89,6 +90,10 @@ _data = {
 
 [node name="YouWin" type="Node2D"]
 script = ExtResource("1_8ii4w")
+
+[node name="YouWin" type="Sprite2D" parent="."]
+position = Vector2(905, 222)
+texture = ExtResource("2_uwykx")
 
 [node name="Animation" type="AnimationPlayer" parent="."]
 libraries = {

@@ -28,3 +28,7 @@ func _flag_button_pressed(button_pressed: BaseButton) -> void:
 
 func _flag_button_mouse_entered() -> void:
 	$HoverButtonSfx.play()
+
+
+func _background_music_finished() -> void:
+	$BackgroundMusic.play()

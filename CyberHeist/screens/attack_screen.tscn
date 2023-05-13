@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://b4o18y3pw0cmo"]
+[gd_scene load_steps=21 format=3 uid="uid://b4o18y3pw0cmo"]
 
 [ext_resource type="Texture2D" uid="uid://b6hv7wxrg5pe7" path="res://res/black.png" id="1_e6v7x"]
 [ext_resource type="Script" path="res://scripts/attack_screen.gd" id="1_gj3p0"]
@@ -13,7 +13,9 @@
 [ext_resource type="Texture2D" uid="uid://b3wnd5iqxel08" path="res://res/flags/mex.png" id="10_hcks7"]
 [ext_resource type="Texture2D" uid="uid://c2jnjpko3bup0" path="res://res/flags/rus.png" id="11_3hluq"]
 [ext_resource type="Texture2D" uid="uid://b6gdvwlxftwho" path="res://res/flags/usa.png" id="12_ob3qh"]
+[ext_resource type="Material" uid="uid://bxpc8yx4xnd4" path="res://shaders/VHS_EFFECTl.tres" id="14_2djmk"]
 [ext_resource type="AudioStream" uid="uid://x6qq4qoafv5p" path="res://sfx/click.mp3" id="14_qisea"]
+[ext_resource type="AudioStream" uid="uid://frwf5gp5ilh6" path="res://sfx/main_menu.mp3" id="16_7gmjn"]
 
 [sub_resource type="Animation" id="Animation_u3rdw"]
 length = 0.001
@@ -159,6 +161,7 @@ texture_normal = ExtResource("12_ob3qh")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+material = ExtResource("14_2djmk")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -174,3 +177,9 @@ libraries = {
 
 [node name="HoverButtonSfx" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("14_qisea")
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("16_7gmjn")
+autoplay = true
+
+[connection signal="finished" from="BackgroundMusic" to="." method="_background_music_finished"]

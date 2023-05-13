@@ -1,10 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://yksivd46dc5y"]
+[gd_scene load_steps=14 format=3 uid="uid://yksivd46dc5y"]
 
 [ext_resource type="FontFile" uid="uid://150dj6ldsdxd" path="res://fonts/Mokoto Glitch Mark 2.otf" id="1_4brw1"]
 [ext_resource type="Script" path="res://scripts/game_over.gd" id="1_224hh"]
-[ext_resource type="Texture2D" uid="uid://dpsmydbgyjqll" path="res://res/game_over_screen.png" id="1_ombqy"]
+[ext_resource type="Texture2D" uid="uid://dxkoatvxe6n8" path="res://res/calavera.png" id="2_55u0d"]
 [ext_resource type="Material" uid="uid://bxpc8yx4xnd4" path="res://shaders/VHS_EFFECTl.tres" id="4_kv7lg"]
 [ext_resource type="AudioStream" uid="uid://x6qq4qoafv5p" path="res://sfx/click.mp3" id="5_kao6l"]
+[ext_resource type="Texture2D" uid="uid://cuyqtdx0sjhh0" path="res://res/game_over.png" id="6_6xpq8"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vp0n4"]
 
@@ -30,9 +31,9 @@ offset_right = 1934.0
 offset_bottom = 989.0
 color = Color(0, 0, 0, 1)
 
-[node name="GameOverScreen" type="Sprite2D" parent="."]
-position = Vector2(953, 484)
-texture = ExtResource("1_ombqy")
+[node name="Calavera" type="Sprite2D" parent="Background"]
+position = Vector2(1041, 564)
+texture = ExtResource("2_55u0d")
 
 [node name="Overlayer" type="CanvasLayer" parent="."]
 
@@ -78,6 +79,10 @@ text = "Restart
 
 [node name="HoverButtonSfx" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_kao6l")
+
+[node name="GameOver" type="Sprite2D" parent="."]
+position = Vector2(958, 332)
+texture = ExtResource("6_6xpq8")
 
 [connection signal="mouse_entered" from="Overlayer/Vhs/QuitBtn" to="." method="_quit_btn_mouse_entered"]
 [connection signal="pressed" from="Overlayer/Vhs/QuitBtn" to="." method="_quit_btn_pressed"]
